@@ -18,7 +18,6 @@ class RootViewController: UIViewController {
         showDialog(message: "Let's go!")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
