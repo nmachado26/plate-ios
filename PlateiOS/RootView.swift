@@ -11,4 +11,5 @@ import Foundation
 protocol RootView : class {
     
     func showDialog(message: String)
+    func changeNameByProtocolOnView(name: String)
 }

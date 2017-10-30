@@ -15,4 +15,13 @@ final class RootPresenter {
     init(view: RootView) {
         self.view = view
     }
+    
+    func showDialogOnView() {
+        view.showDialog(message: "Bora")
+    }
+    
+    func changeNameFunctionStupidOnPresenter(){
+        view.changeNameByProtocolOnView(name: "Nick")
+    }
+    
 }
