@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class RootViewController: UIViewController,  UITableViewDelegate  {
+class RootViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource  {
 //UITableViewDataSource
     
 //    @IBOutlet weak var bob: UILabel!
@@ -54,19 +54,19 @@ class RootViewController: UIViewController,  UITableViewDelegate  {
     
     
     
-//    let list = ["Google PHD Event", "Microsoft Speaker", "Brazilian Barbecue", "Alumni MeetUp", "Foodie Event", "Fraternity Barbecue"]
-//
+    let list = ["Google PHD Event", "Microsoft Speaker", "Brazilian Barbecue", "Alumni MeetUp", "Foodie Event", "Fraternity Barbecue"]
+
     //Tableview, returns the number of items on the list of events
-//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-//        return(list.count)
-    //}
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return(list.count)
+    }
     
-    //Tableview, prints the cells of the items in the array on the canvas
-//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-//        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-//        cell.textLabel?.text = list[indexPath.row]
-//        return(cell)
-//    }
+   // Tableview, prints the cells of the items in the array on the canvas
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        cell.textLabel?.text = list[indexPath.row]
+        return(cell)
+    }
     
     
     override func didReceiveMemoryWarning() {
