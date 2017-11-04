@@ -15,7 +15,7 @@ class RootViewController: UIViewController {
     fileprivate lazy var presenter: RootPresenter = {
         return RootPresenter(view: self)
     }()
-    
+    //asfcdzf
     @IBAction func button_for_testing(_ sender: Any) {
         presenter.showDialogOnView()
         presenter.changeNameFunctionStupidOnPresenter()
