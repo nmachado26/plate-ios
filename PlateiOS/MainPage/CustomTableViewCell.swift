@@ -11,7 +11,32 @@ import Alamofire
 
 class CustomTableViewCell: UITableViewCell {
 
-//    @IBOutlet weak var titleLabel: UILabel!
+    //MARK: Properties
+    
+    @IBOutlet weak var time: UILabel!
+    @IBAction func buttonClickAction(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var actionButton: UIButton!
+    
+
+    
+    @IBOutlet weak var locationName: UILabel!
+    
+    @IBOutlet weak var eventName: UILabel!
+    
+    var cardModel: CardModel? {
+        didSet {
+            updateLabels()
+        }
+    }
+    
+    fileprivate func updateLabels() {
+        time.text = cardModel?.time
+        locationName.text = cardModel?.locationName
+        eventName.text = cardModel?.eventName
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +47,7 @@ class CustomTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

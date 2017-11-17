@@ -9,63 +9,84 @@
 import UIKit
 import Alamofire
 
+public struct Promotion: Decodable {
+    let promotion_id : String
+    let title : String
+    let start_time : String
+    let end_time : String
+    let location : String
+}
+
 class RootViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource  {
 //UITableViewDataSource
-    
-//    @IBOutlet weak var bob: UILabel!
-//
-//    fileprivate lazy var presenter: RootPresenter = {
-//        return RootPresenter(view: self)
-//    }()
-//    //asfcdzf
-//    @IBAction func button_for_testing(_ sender: Any) {
-//        presenter.showDialogOnView()
-//        presenter.changeNameFunctionStupidOnPresenter()
-//    }
+    let photo1 = UIImage(named: "go sign")
+@IBOutlet weak var tableView: UITableView!
 
+    var promotions = [Promotion]()
+    var yourArray = [String]()
+    let list = ["Google PHD Event", "Microsoft Speaker", "Brazilian Barbecue", "Alumni MeetUp", "Foodie Event", "Fraternity Barbecue"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let jsonURL = "https://plate-heroku-database.herokuapp.com/promotions"
+        let url = URL(string: jsonURL)
+        
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            do{
+                self.promotions = try JSONDecoder().decode([Promotion].self, from: data!)
+                
+                for eachPromotion in self.promotions {
+                    print(eachPromotion.promotion_id + " : " + eachPromotion.title + " : " + eachPromotion.start_time + " : " + eachPromotion.end_time + " : " + eachPromotion.location)
+                    print( " " )
+                    self.yourArray.append(eachPromotion.title)
+                    print("Printed array: ")
+                    print(self.yourArray)
+                }
+                
+            }
+            catch{
+                print("Error")
+            }
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+            }
+    .resume()
+    
+        let nibName = UINib(nibName: "CustomTableViewCell", bundle: nil)
+        tableView.register(nibName, forCellResuseIdentifier: "CustomTableViewCell")
+        
+        
+    }
+    
     /* TABLE VIEW METHODS
      */
     
-    @IBOutlet weak var tableView: UITableView!
     
-    var actorsArray =  [AnyObject]()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        Alamofire.request("https://plate-database.herokuapp.com/users").responseJSON { response in
-            print("\(response)")
-            
-//            let result = response.result
-//            if let dict = result.value as? Dictionary<String.AnyObject>{
-//                if let innerDict = dict["username:"]{
-//                }
-//        }
-    }
-    }
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    let list = ["Google PHD Event", "Microsoft Speaker", "Brazilian Barbecue", "Alumni MeetUp", "Foodie Event", "Fraternity Barbecue"]
-
     //Tableview, returns the number of items on the list of events
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return(list.count)
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(yourArray.count)
+        return(yourArray.count)
     }
     
    // Tableview, prints the cells of the items in the array on the canvas
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = list[indexPath.row]
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+       let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+
+        cell.textLabel?.text = yourArray[indexPath.row]
+
         return(cell)
+        
+//        guard let item = presenter?.cartListModel?.items[indexPath.row] else { return UITableViewCell() }
+//
+//        let cartItemCell: CartItemCell = tableView.dequeueReusableCell(for: indexPath)
+//
+//        cartItemCell.cellModel = item
+//
+//        return cardModel
     }
     
     
@@ -76,16 +97,5 @@ class RootViewController: UIViewController,  UITableViewDelegate, UITableViewDat
 
 }
 
-//extension RootViewController : RootView {
-//    func changeNameByProtocolOnView(name: String) {
-//        bob.text = name
-//    }
-//
-//    func showDialog(message: String) {
-//        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//        present(alert, animated: true, completion: nil)
-//    }
-//
-//}
+
 
