@@ -9,19 +9,26 @@
 import Foundation
 
 final class RootPresenter {
-
+    var promotionsList = 
+    
     private unowned let view: RootView
     
     init(view: RootView) {
         self.view = view
     }
     
-    func showDialogOnView() {
-        view.showDialog(message: "Bora")
+    func initializeEventList() {
+        
     }
     
-    func changeNameFunctionStupidOnPresenter(){
-        view.changeNameByProtocolOnView(name: "Nick")
-    }
-    
+}
+
+func showDialogOnView() {
+    view.showDialog(message: "Bora")
+}
+
+func changeNameFunctionStupidOnPresenter(){
+    view.changeNameByProtocolOnView(name: "Nick")
+}
+
 }
