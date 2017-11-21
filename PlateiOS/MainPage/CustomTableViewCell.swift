@@ -6,6 +6,22 @@
 //  Copyright © 2017 Renner Leite Lucena. All rights reserved.
 //
 
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH - REMOOOOOOVE AND GIT PUSH LATER
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH
+//TRAAAASH/
 //import UIKit
 //import Alamofire
 //
@@ -31,11 +47,11 @@
 //        }
 //    }
 //    
-    fileprivate func updateLabels() {
-        time.text = eventModel?.time
-        locationName.text = eventModel?.locationName
-        eventName.text = eventModel?.eventName
-    }
+//    fileprivate func updateLabels() {
+//        time.text = eventModel?.time
+//        locationName.text = eventModel?.locationName
+//        eventName.text = eventModel?.eventName
+//    }
 //    
 //    override func awakeFromNib() {
 //        super.awakeFromNib()

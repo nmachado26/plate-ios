@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-protocol RootView : class {
-    
-    func showDialog(message: String)
-    func changeNameByProtocolOnView(name: String)
+// Protocol with the functions that the presenter can call, ordering the view to execute
+protocol RootProtocol : class {
+    func showAlert(title: String, message: String, arrayOfActions: [UIAlertAction])
+    func loadTable()
 }
