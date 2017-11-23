@@ -32,7 +32,34 @@ extension PromotionModel {
     
     // Single function that returns a string with the start and end times.
     public func getTime() -> String {
-        return ("Start: " +  self.start_time + " End: " + self.end_time)
+        
+        //parses the time string to output cleaner time frame
+        let startString = parseStartTime()
+        let endString = parseEndTime()
+        return (startString + " - " + endString)
     }
+    
+    fileprivate func parseStartTime() -> String{
+        let start = start_time.index(start_time.startIndex, offsetBy: 11)
+        let end = start_time.index(start_time.endIndex, offsetBy: -8)
+        let range = start..<end
+        let startSubstring = start_time[range]  // play
+        
+        //write method to output 12 hour time scale with AM or PM
+        
+        return String(startSubstring)
+    }
+    
+    fileprivate func parseEndTime() -> String{
+        let start = end_time.index(end_time.startIndex, offsetBy: 11)
+        let end = end_time.index(end_time.endIndex, offsetBy: -8)
+        let range = start..<end
+        let endSubstring = end_time[range]
+        
+        //write method to output 12 hour time scale with AM or PM
+        
+        return String(endSubstring)
+    }
+    
 }
 
