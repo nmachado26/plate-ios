@@ -10,7 +10,9 @@ import UIKit
 
 protocol LoginPageProtocol : class {
     
-    func showErrorMessage(message: String)
+    func showErrorMessage(title: String, message: String)
     func showAlert()
     func setItemsList(promotions: [PromotionModel])
+    func openViewController(controller: UIViewController)
+    func presentViewController(controller: UIViewController)
 }

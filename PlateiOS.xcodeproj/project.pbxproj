@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		01241B911FB7B13C0043E206 /* PromotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01241B901FB7B13C0043E206 /* PromotionModel.swift */; };
 		01A8CFC31FAE6DD400520E5B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A8CFB31FAE6D3B00520E5B /* Alamofire.framework */; };
-		01B340AA1FB7A00600717B25 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B340A21FB7A00600717B25 /* CustomTableViewCell.xib */; };
 		DB530B721FC3765200FCB77D /* PromotionListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB530B711FC3765200FCB77D /* PromotionListDataSource.swift */; };
 		DB530B741FC3766200FCB77D /* PromotionListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB530B731FC3766200FCB77D /* PromotionListDelegate.swift */; };
 		DB5A4E671FCE812200DCDACA /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4E661FCE812200DCDACA /* LoginPageController.swift */; };
 		DB5A4E691FCE814100DCDACA /* LoginPageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4E681FCE814100DCDACA /* LoginPageProtocol.swift */; };
-		DB5A4E6B1FCE815E00DCDACA /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4E6A1FCE815E00DCDACA /* LoginPageViewController.swift */; };
 		DB5A4E6D1FCE81C800DCDACA /* PromotionList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5A4E6C1FCE81C800DCDACA /* PromotionList.storyboard */; };
+		DB5A4E701FCF4C7100DCDACA /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4E6F1FCF4C7100DCDACA /* LoginPageViewController.swift */; };
 		DBBB28F21FBFD8A100922BB2 /* PromotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB28F01FBFD8A100922BB2 /* PromotionCell.swift */; };
 		DBBB28F31FBFD8A100922BB2 /* PromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBBB28F11FBFD8A100922BB2 /* PromotionCell.xib */; };
 		DBBB28F51FBFDCA000922BB2 /* PromotionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB28F41FBFDCA000922BB2 /* PromotionListViewController.swift */; };
@@ -90,13 +89,12 @@
 /* Begin PBXFileReference section */
 		01241B901FB7B13C0043E206 /* PromotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionModel.swift; sourceTree = "<group>"; };
 		01A8CFA71FAE6D3B00520E5B /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../../Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		01B340A21FB7A00600717B25 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		DB530B711FC3765200FCB77D /* PromotionListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListDataSource.swift; sourceTree = "<group>"; };
 		DB530B731FC3766200FCB77D /* PromotionListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListDelegate.swift; sourceTree = "<group>"; };
 		DB5A4E661FCE812200DCDACA /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
 		DB5A4E681FCE814100DCDACA /* LoginPageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageProtocol.swift; sourceTree = "<group>"; };
-		DB5A4E6A1FCE815E00DCDACA /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		DB5A4E6C1FCE81C800DCDACA /* PromotionList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PromotionList.storyboard; sourceTree = "<group>"; };
+		DB5A4E6F1FCF4C7100DCDACA /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		DBBB28F01FBFD8A100922BB2 /* PromotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCell.swift; sourceTree = "<group>"; };
 		DBBB28F11FBFD8A100922BB2 /* PromotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionCell.xib; sourceTree = "<group>"; };
 		DBBB28F41FBFDCA000922BB2 /* PromotionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionListViewController.swift; sourceTree = "<group>"; };
@@ -171,9 +169,10 @@
 		DB5A4E651FCE804800DCDACA /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
-				DB5A4E661FCE812200DCDACA /* LoginPageController.swift */,
 				DB5A4E681FCE814100DCDACA /* LoginPageProtocol.swift */,
-				DB5A4E6A1FCE815E00DCDACA /* LoginPageViewController.swift */,
+				DB5A4E661FCE812200DCDACA /* LoginPageController.swift */,
+				DB5A4E6F1FCF4C7100DCDACA /* LoginPageViewController.swift */,
+				DBECFB951F99DC9D0081C09A /* Main.storyboard */,
 			);
 			path = LoginPage;
 			sourceTree = "<group>";
@@ -211,11 +210,9 @@
 				DB5A4E651FCE804800DCDACA /* LoginPage */,
 				0110FB7D1FAE4E2C00801C9A /* PromotionList */,
 				DBECFB911F99DC9D0081C09A /* AppDelegate.swift */,
-				DBECFB951F99DC9D0081C09A /* Main.storyboard */,
 				DBECFB981F99DC9D0081C09A /* Assets.xcassets */,
 				DBECFB9A1F99DC9D0081C09A /* LaunchScreen.storyboard */,
 				DBECFB9D1F99DC9D0081C09A /* Info.plist */,
-				01B340A21FB7A00600717B25 /* CustomTableViewCell.xib */,
 			);
 			path = PlateiOS;
 			sourceTree = "<group>";
@@ -342,7 +339,6 @@
 				DBECFB9C1F99DC9D0081C09A /* LaunchScreen.storyboard in Resources */,
 				DB5A4E6D1FCE81C800DCDACA /* PromotionList.storyboard in Resources */,
 				DBECFB991F99DC9D0081C09A /* Assets.xcassets in Resources */,
-				01B340AA1FB7A00600717B25 /* CustomTableViewCell.xib in Resources */,
 				DBECFB971F99DC9D0081C09A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +359,7 @@
 				DBECFBA61F99E95A0081C09A /* PromotionListController.swift in Sources */,
 				DB530B741FC3766200FCB77D /* PromotionListDelegate.swift in Sources */,
 				DBECFBA41F99E93B0081C09A /* PromotionListProtocol.swift in Sources */,
-				DB5A4E6B1FCE815E00DCDACA /* LoginPageViewController.swift in Sources */,
+				DB5A4E701FCF4C7100DCDACA /* LoginPageViewController.swift in Sources */,
 				DB530B721FC3765200FCB77D /* PromotionListDataSource.swift in Sources */,
 				01241B911FB7B13C0043E206 /* PromotionModel.swift in Sources */,
 			);

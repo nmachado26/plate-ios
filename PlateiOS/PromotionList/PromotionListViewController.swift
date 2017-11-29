@@ -10,6 +10,8 @@ import UIKit
 
 class PromotionListViewController: UIViewController {
     
+    public var username: String? = nil
+    
     // Basically lazily initializes the controller - only instantiates it,
     // "wasting" memory to do it, when the controller is used for the first time.
     // Search more to understand better.

@@ -18,16 +18,42 @@ final class LoginPageController {
 }
 
 extension LoginPageController {
+    
     func tryToSignup(username: String) {
-        if(username == "") loginPageProtocol.showErrorMessage(message: "Invalid password!")
+        if(username == "") {
+            loginPageProtocol.showErrorMessage(title: "error", message: "Invalid password!")
+            return
+        }
         // check in the database if username exists
+        let responseFromDatabase = true // get from the database, passing the username to alamofire method
+        
         // goto promotions table view controller
+        //           open for me a new MVC - the one...
+        if(responseFromDatabase == true) {
+            let promotionListViewController = PromotionListViewController()
+            promotionListViewController.username = username
+            loginPageProtocol.openViewController(controller: promotionListViewController)
+        }
+        else {
+            loginPageProtocol.showErrorMessage(title: "error", message: "invalid username")
+        }
     }
     
     func tryToLogin(username: String) {
-        if(username == "") loginPageProtocol.showErrorMessage(message: "Invalid password!")
-        // check in the database if username exists
-        // goto promotions table view controller
+        if(username == "") {
+            loginPageProtocol.showErrorMessage(title: "error", message: "Invalid password!")
+            return
+        }
+        let responseFromDatabase = true
+        
+        if(responseFromDatabase == true) {
+            let promotionListViewController = PromotionListViewController()
+            promotionListViewController.username = username
+            loginPageProtocol.openViewController(controller: promotionListViewController)
+        }
+        else {
+            loginPageProtocol.showErrorMessage(title: "error", message: "invalid username")
+        }
+        
     }
 }
-
