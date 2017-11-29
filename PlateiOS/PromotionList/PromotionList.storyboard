@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Promotion List View Controller-->
+        <scene sceneID="9rc-iO-HC4">
+            <objects>
+                <viewController id="5mD-jg-1Jo" userLabel="Promotion List View Controller" customClass="PromotionListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kDG-CC-ddz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E9f-kW-7dQ" userLabel="Promotion List Table">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="E9f-kW-7dQ" firstAttribute="bottom" secondItem="DMi-rm-b6L" secondAttribute="bottom" id="2iq-Jc-OCC"/>
+                            <constraint firstItem="E9f-kW-7dQ" firstAttribute="top" secondItem="kDG-CC-ddz" secondAttribute="top" id="YKw-uT-kAG"/>
+                            <constraint firstItem="E9f-kW-7dQ" firstAttribute="leading" secondItem="kDG-CC-ddz" secondAttribute="leading" id="Zx2-cC-zOI"/>
+                            <constraint firstAttribute="trailing" secondItem="E9f-kW-7dQ" secondAttribute="trailing" id="cYd-G0-pTB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DMi-rm-b6L"/>
+                    </view>
+                    <connections>
+                        <outlet property="promotionTable" destination="E9f-kW-7dQ" id="BaP-cX-X0H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DxG-gD-UIQ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31.199999999999999" y="-26.53673163418291"/>
+        </scene>
+    </scenes>
+</document>

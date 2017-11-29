@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 final class PromotionListDataSource : NSObject {
-    // Reference to the presenter that we need here to access the promotionsList
-    public var rootPresenter: RootPresenter?
+    // Reference to the controller that we need here to access the promotionsList
+    public var promotionListController: PromotionListController?
 }
 
 // See that this extension basically implements a protocol, ones that is standard for
@@ -24,12 +24,12 @@ extension PromotionListDataSource : UITableViewDataSource {
     }
     
     // We need as many rows as the quantityOfItems in our promotionsList model, one that
-    // we can access because of our presenter reference. The guard let basically makes
+    // we can access because of our controller reference. The guard let basically makes
     // sure that we have a not null value associalted to the quantityOfItems, returning 0
     // if that's the case. Search to understand better (I can explain more about it
     // later).
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let quantityOfItems = rootPresenter?.promotionList.quantityOfItems() else {
+        guard let quantityOfItems = promotionListController?.promotionList.quantityOfItems() else {
             return 0
         }
     
@@ -39,7 +39,7 @@ extension PromotionListDataSource : UITableViewDataSource {
     // Basically changes the default cell of the table view for the xib's one
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let promotionModel = rootPresenter?.promotionList.promotions[indexPath.row] else { return UITableViewCell() }
+        guard let promotionModel = promotionListController?.promotionList.promotions[indexPath.row] else { return UITableViewCell() }
         guard let tableCell = tableView.dequeueReusableCell(withIdentifier: "PromotionCell", for: indexPath) as? PromotionCell else { return UITableViewCell() }
         tableCell.updateLabels(promotionModel: promotionModel)
         return tableCell

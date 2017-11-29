@@ -39,7 +39,7 @@ extension PromotionModel {
         return (startString + " - " + endString)
     }
     
-    fileprivate func parseStartTime() -> String{
+    fileprivate func parseStartTime() -> String {
         let start = start_time.index(start_time.startIndex, offsetBy: 11)
         let end = start_time.index(start_time.endIndex, offsetBy: -8)
         let range = start..<end
@@ -50,7 +50,7 @@ extension PromotionModel {
         return String(startSubstring)
     }
     
-    fileprivate func parseEndTime() -> String{
+    fileprivate func parseEndTime() -> String {
         let start = end_time.index(end_time.startIndex, offsetBy: 11)
         let end = end_time.index(end_time.endIndex, offsetBy: -8)
         let range = start..<end

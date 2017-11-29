@@ -18,7 +18,7 @@ class PromotionCell: UITableViewCell {
     @IBAction func goButton(_ sender: Any) {
         
         // Allows user to confirm they are going and creates a distinction between confirmed xibs.
-        if(buttonObj.currentTitle == "GO" ){
+        if(buttonObj.currentTitle == "GO" ) {
             buttonObj.setTitle("CONFIRMED", for: .normal)
             buttonObj.backgroundColor = UIColor.blue
         }

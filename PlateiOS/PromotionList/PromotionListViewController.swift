@@ -1,5 +1,5 @@
 //
-//  RootViewController.swift
+//  PromotionListViewController.swift
 //  PlateiOS
 //
 //  Created by Renner Leite Lucena on 10/20/17.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class RootViewController: UIViewController {
+class PromotionListViewController: UIViewController {
     
-    // Basically lazily initializes the presenter - only instantiates it,
-    // "wasting" memory to do it, when the presenter is used for the first time.
+    // Basically lazily initializes the controller - only instantiates it,
+    // "wasting" memory to do it, when the controller is used for the first time.
     // Search more to understand better.
-    fileprivate lazy var rootPresenter: RootPresenter = {
+    fileprivate lazy var promotionListController: PromotionListController = {
         
-        // see that we give self as parameter as the rootProtocol because this
-        // viewController implements this, and so the presenter can use it.
-        return RootPresenter(rootProtocol: self)
+        // see that we give self as parameter as the promotionListProtocol because this
+        // viewController implements this, and so the controller can use it.
+        return PromotionListController(promotionListProtocol: self)
     }()
     
     // Custom data source and delegate for our tableView. These two contain the important
@@ -30,17 +30,17 @@ class RootViewController: UIViewController {
     @IBOutlet fileprivate weak var promotionTable: UITableView!
     
     // Uses this part of the lifecycle of the view to initialize the promotionsList, one
-    // located in the presenter, initialized there as well, later used to load the
+    // located in the controller, initialized there as well, later used to load the
     // tableView.
     override func viewDidLoad() {
         super.viewDidLoad()
-        rootPresenter.initializePromotionList()
+        promotionListController.initializePromotionList()
     }
 }
 
 // Extension for organization - all the functions, just as the view, are passive and just
-// obey the presenter.
-extension RootViewController: RootProtocol {
+// obey the controller.
+extension PromotionListViewController: PromotionListProtocol {
     
     // Method that we will use later to present an alert with two actions, cancel or
     // confirm that you clicked in the "No food left" button.
@@ -50,15 +50,14 @@ extension RootViewController: RootProtocol {
         present(alert, animated: true, completion: nil)
     }
     
-    // Method that runs after the promotionsList in the presenter is filled with
+    // Method that runs after the promotionsList in the controller is filled with
     // information from the database.
     func loadTable() {
-        
         // self.dataSource and self.delegate reference to our global variables
-        // instantiated before. The self.dataSource.rootPresenter is basically a
-        // reference in the dataSource to our rootPresenter, one that we need to access
-        // the promotionsList from there (see the file PromotionListDataSource).
-        self.dataSource.rootPresenter = self.rootPresenter
+        // instantiated before. The self.dataSource.promotionListController is basically a
+        // reference in the dataSource to our promotionListController, one that we need to
+        // access the promotionsList from there (see the file PromotionListDataSource).
+        self.dataSource.promotionListController = self.promotionListController
         promotionTable.dataSource = self.dataSource
         promotionTable.delegate = self.delegate
 

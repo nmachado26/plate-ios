@@ -1,5 +1,5 @@
 //
-//  RootPresenter.swift
+//  PromotionListController.swift
 //  PlateiOS
 //
 //  Created by Renner Leite Lucena on 10/20/17.
@@ -8,25 +8,25 @@
 
 import Foundation
 
-// The presenter, which contains all the logic - change to Controller later or see how
+// The controller, which contains all the logic - change to Controller later or see how
 // they call it on the internet.
-final class RootPresenter {
+final class PromotionListController {
     
     // promotionList which contains all the data for all the promotions. It is
     // instantiated later as global (so that we can manipulate it in the entire
-    // presenter).
+    // controller).
     var promotionList = PromotionListModel()
-    private unowned let rootProtocol: RootProtocol
+    private unowned let promotionListProtocol: PromotionListProtocol
     
-    // init of the presenter, with the communication channel to the viewController
-    // being the rootProtocol
-    init(rootProtocol: RootProtocol) {
-        self.rootProtocol = rootProtocol
+    // init of the controller, with the communication channel to the viewController
+    // being the promotionListProtocol
+    init(promotionListProtocol: PromotionListProtocol) {
+        self.promotionListProtocol = promotionListProtocol
     }
 }
 
 // Extension for organization
-extension RootPresenter {
+extension PromotionListController {
     
     // Function that initializes our promotionList. Since it communicates with the
     // database, it is better to keep it here instead of inside the list model.
@@ -40,10 +40,10 @@ extension RootPresenter {
                 
                 // This block basically says that, in the main thread of execution,
                 // whenever possible, we should execute the loadTable method, through
-                // the rootProtocol channel of communication. Search to understand
+                // the promotionListProtocol channel of communication. Search to understand
                 // better.
                 DispatchQueue.main.sync {
-                    self?.rootProtocol.loadTable()
+                    self?.promotionListProtocol.loadTable()
                 }
             }catch {
                 print("Error")
