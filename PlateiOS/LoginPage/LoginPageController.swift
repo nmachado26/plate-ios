@@ -10,26 +10,43 @@ import UIKit
 
 final class LoginPageController {
     
+    private let loginPageService: LoginPageService
     private unowned let loginPageProtocol: LoginPageProtocol
     
     init(loginPageProtocol: LoginPageProtocol) {
         self.loginPageProtocol = loginPageProtocol
+        self.loginPageService = LoginPageService()
     }
 }
 
 extension LoginPageController {
     
     func tryToSignup(username: String) {
-        if(username == "") {
+        if(username == "") { //add validations
             loginPageProtocol.showErrorMessage(title: "error", message: "Invalid password!")
             return
         }
-        // check in the database if username exists
-        let responseFromDatabase = true // get from the database, passing the username to alamofire method
         
-        // goto promotions table view controller
-        //           open for me a new MVC - the one...
-        if(responseFromDatabase == true) {
+        loginPageService.registerUser(username: username, completion: { [weak self] success, username in
+            self?.handleRegisterUser(success: success, username: username)
+        })
+    }
+    
+    func tryToLogin(username: String) {
+        if(username == "") { //add validations
+            loginPageProtocol.showErrorMessage(title: "error", message: "Invalid password!")
+            return
+        }
+        
+        loginPageService.checkUser(username: username, completion: { [weak self] success, username in
+            self?.handleCheckUser(success: success, username: username)
+        })
+    }
+}
+
+extension LoginPageController {
+    fileprivate func handleRegisterUser(success: Bool, username: String) {
+        if(success == true) {
             let promotionListViewController = UIStoryboard.init(name: "PromotionList", bundle: nil).instantiateViewController(withIdentifier: "PromotionList")
                 as! PromotionListViewController
             promotionListViewController.username = username
@@ -40,22 +57,15 @@ extension LoginPageController {
         }
     }
     
-    func tryToLogin(username: String) {
-        if(username == "") {
-            loginPageProtocol.showErrorMessage(title: "error", message: "Invalid password!")
-            return
-        }
-        let responseFromDatabase = true
-        
-        if(responseFromDatabase == true) {
+    fileprivate func handleCheckUser(success: Bool, username: String) {
+        if(success == true) {
             let promotionListViewController = UIStoryboard.init(name: "PromotionList", bundle: nil).instantiateViewController(withIdentifier: "PromotionList")
-            as! PromotionListViewController
+                as! PromotionListViewController
             promotionListViewController.username = username
             loginPageProtocol.openViewController(controller: promotionListViewController)
         }
         else {
             loginPageProtocol.showErrorMessage(title: "error", message: "invalid username")
         }
-        
     }
 }
