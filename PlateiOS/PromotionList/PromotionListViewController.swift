@@ -10,25 +10,27 @@ import UIKit
 
 class PromotionListViewController: UIViewController {
     
-    public var username: String? = nil
+    // Custom data source and delegate for our tableView. These two contain the important
+    // methods that we have to override to change the default behaviour of the tableView.
+    // We create separate files to declare them.
+    fileprivate var dataSource = PromotionListDataSource()
+    fileprivate var delegate = PromotionListDelegate()
+    
+    // Username, set in with information about the user logged
+    var username = ""
     
     // Basically lazily initializes the controller - only instantiates it,
     // "wasting" memory to do it, when the controller is used for the first time.
     // Search more to understand better.
     fileprivate lazy var promotionListController: PromotionListController = {
-        
+
         // see that we give self as parameter as the promotionListProtocol because this
         // viewController implements this, and so the controller can use it.
         return PromotionListController(promotionListProtocol: self)
     }()
     
-    // Custom data source and delegate for our tableView. These two contain the important
-    // methods that we have to override to change the default behaviour of the tableView.
-    // We create separate files to declare them.
-    fileprivate let dataSource = PromotionListDataSource()
-    fileprivate let delegate = PromotionListDelegate()
-    
     // TableView outlet
+//    @IBOutlet fileprivate weak var promotionTable: UITableView!
     @IBOutlet fileprivate weak var promotionTable: UITableView!
     
     // Uses this part of the lifecycle of the view to initialize the promotionsList, one

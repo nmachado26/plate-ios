@@ -10,12 +10,12 @@ import UIKit
 
 class LoginPageViewController: UIViewController {
     
-//    @IBOutlet weak var username_input: UITextField!
+    @IBOutlet weak var username_input: UITextField!
     @IBAction func signup_button_action(_ sender: Any) {
-//        loginPageController.tryToSignup(username: username_input.text ?? "")
+        loginPageController.tryToSignup(username: username_input.text ?? "")
     }
     @IBAction func login_button_action(_ sender: Any) {
-//        loginPageController.tryToLogin(username: username_input.text ?? "")
+        loginPageController.tryToLogin(username: username_input.text ?? "")
     }
     
     fileprivate lazy var loginPageController: LoginPageController = {
@@ -24,9 +24,9 @@ class LoginPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        username_input.delegate = self
     }
-    
-    
 }
 
 extension LoginPageViewController: LoginPageProtocol {
@@ -55,7 +55,15 @@ extension LoginPageViewController: LoginPageProtocol {
             self.present(controller, animated: true, completion: nil)
         }
     }
-    
+}
+
+extension LoginPageViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+    }
 }
 
 

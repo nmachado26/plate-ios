@@ -30,7 +30,8 @@ extension LoginPageController {
         // goto promotions table view controller
         //           open for me a new MVC - the one...
         if(responseFromDatabase == true) {
-            let promotionListViewController = PromotionListViewController()
+            let promotionListViewController = UIStoryboard.init(name: "PromotionList", bundle: nil).instantiateViewController(withIdentifier: "PromotionList")
+                as! PromotionListViewController
             promotionListViewController.username = username
             loginPageProtocol.openViewController(controller: promotionListViewController)
         }
@@ -47,7 +48,8 @@ extension LoginPageController {
         let responseFromDatabase = true
         
         if(responseFromDatabase == true) {
-            let promotionListViewController = PromotionListViewController()
+            let promotionListViewController = UIStoryboard.init(name: "PromotionList", bundle: nil).instantiateViewController(withIdentifier: "PromotionList")
+            as! PromotionListViewController
             promotionListViewController.username = username
             loginPageProtocol.openViewController(controller: promotionListViewController)
         }

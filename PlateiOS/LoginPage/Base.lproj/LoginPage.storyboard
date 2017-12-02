@@ -12,7 +12,7 @@
         <!--Login Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Login Page View Controller" customClass="LoginPageViewController" customModule="PlateiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPage" title="LoginPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="Login Page View Controller" customClass="LoginPageViewController" customModule="PlateiOS" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,6 @@
                                 <state key="normal" title="SIGN UP"/>
                                 <connections>
                                     <action selector="signup_button_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="73k-hZ-myz"/>
-                                    <action selector="signup_button_action:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="mFU-1M-WDB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htu-rc-PqY" userLabel="Login Button">
@@ -32,13 +31,22 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="login_button_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Agx-r6-jJX"/>
-                                    <action selector="login_button_action:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="dgG-WZ-A67"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNf-1W-qWX">
+                                <rect key="frame" x="93" y="236" width="189" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="username_input" destination="RNf-1W-qWX" id="oBg-Ua-p6l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
