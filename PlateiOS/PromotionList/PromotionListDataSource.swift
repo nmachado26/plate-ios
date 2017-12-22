@@ -40,8 +40,9 @@ extension PromotionListDataSource : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let promotionModel = promotionListController?.promotionList.promotions[indexPath.row] else { return UITableViewCell() }
+        guard let availability = promotionListController?.promotionList.promotionsStatus[promotionModel] else { return UITableViewCell() }
         guard let tableCell = tableView.dequeueReusableCell(withIdentifier: "PromotionCell", for: indexPath) as? PromotionCell else { return UITableViewCell() }
-        tableCell.updateLabels(promotionModel: promotionModel)
+        tableCell.updateLabels(promotionModel: promotionModel, boolean: availability)
         return tableCell
     }
 }

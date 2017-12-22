@@ -9,6 +9,10 @@
 import UIKit
 
 class PromotionCell: UITableViewCell {
+    
+    var promotionListController: PromotionListController? = nil
+    var promotionModel: PromotionModel? = nil
+    
     //Outlets for cell elements
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -22,8 +26,9 @@ class PromotionCell: UITableViewCell {
             buttonObj.setTitle("CONFIRMED", for: .normal)
             buttonObj.backgroundColor = UIColor.blue
         }
-        else{
+        else if(buttonObj.currentTitle == "No Food Left") {
             //Update calls once the database says there is no food left. No database information for this yet to retrieve, so I just have it set as the second click.
+            promotionListController?.promotionList.removePromotion(promotionModel: promotionModel!)
             buttonObj.setTitle("No Food Left", for: .normal)
             buttonObj.backgroundColor = UIColor.red
         }
@@ -34,9 +39,17 @@ class PromotionCell: UITableViewCell {
 extension PromotionCell {
     
     // Function that updates the outlet labels
-    public func updateLabels(promotionModel: PromotionModel) {
+    public func updateLabels(promotionModel: PromotionModel, boolean: Bool) {
         title.text = promotionModel.title
         location.text = promotionModel.location
         time.text = promotionModel.getTime()
+        if(boolean){
+            buttonObj.setTitle("GO", for: .normal)
+            buttonObj.backgroundColor = UIColor.green
+        }
+        else{
+            buttonObj.setTitle("No Food Left", for: .normal)
+            buttonObj.backgroundColor = UIColor.red
+        }
     }
 }

@@ -12,11 +12,13 @@ import Foundation
 class PromotionListModel {
     
     var promotions: [PromotionModel]
+    var promotionsStatus = [PromotionModel : Bool]()
     
     // Empty init, only to have one. We actually initialize it when we do the JSON
     // parsing.
     init() {
         promotions = []
+        promotionsStatus = [:]
     }
 }
 
@@ -26,5 +28,11 @@ extension PromotionListModel {
     // Funtion that returns the total number of items in the promotions array.
     public func quantityOfItems() -> Int {
         return promotions.count
+    }
+    
+    public func removePromotion(promotionModel : PromotionModel){
+        let index = promotions.index(of: promotionModel)
+        promotions.remove(at: index!)
+        promotionsStatus.removeValue(forKey: promotionModel)
     }
 }

@@ -9,7 +9,16 @@
 import Foundation
 
 // Our promotionModel, one for each event/promotion.
-class PromotionModel: Decodable {
+class PromotionModel: Decodable, Hashable {
+    
+    var hashValue: Int{
+         return promotion_id.hashValue
+    }
+    
+    static func ==(lhs: PromotionModel, rhs: PromotionModel) -> Bool {
+         return lhs.promotion_id == rhs.promotion_id
+    }
+    
     
     var promotion_id : String
     var title : String

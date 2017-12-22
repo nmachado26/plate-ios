@@ -38,7 +38,7 @@ class PromotionListViewController: UIViewController {
     // tableView.
     override func viewDidLoad() {
         super.viewDidLoad()
-        promotionListController.initializePromotionList()
+        promotionListController.initializePromotionList(username: username)
     }
 }
 

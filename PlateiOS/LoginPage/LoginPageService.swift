@@ -14,7 +14,7 @@ final class LoginPageService {
     
     func registerUser(username: String, completion: @escaping (_ success: Bool, _ username: String) -> Void) {
         Alamofire.request(path + "users/create/" + username, method: .get, parameters: nil).responseString { response in
-            print(response)
+//            print(response)
             if let stringResponse = response.result.value {
                 let success = (stringResponse == "true")
                 completion(success, username)
@@ -24,7 +24,7 @@ final class LoginPageService {
     
     func checkUser(username: String, completion: @escaping (_ success: Bool, _ username: String) -> Void) {
         Alamofire.request(path + "users/read/" + username, method: .get, parameters: nil).responseString { response in
-            print(response)
+//            print(response)
             if let stringResponse = response.result.value {
                 let success = (stringResponse == "true")
                 completion(success, username)
