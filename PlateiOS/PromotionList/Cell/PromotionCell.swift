@@ -29,8 +29,7 @@ class PromotionCell: UITableViewCell {
         else if(buttonObj.currentTitle == "No Food Left") {
             //Update calls once the database says there is no food left. No database information for this yet to retrieve, so I just have it set as the second click.
             promotionListController?.promotionList.removePromotion(promotionModel: promotionModel!)
-            buttonObj.setTitle("No Food Left", for: .normal)
-            buttonObj.backgroundColor = UIColor.red
+            promotionListController?.initializePromotionList(username: (promotionListController?.updateUsername)! )
         }
     }
 }

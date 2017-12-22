@@ -32,7 +32,6 @@ extension PromotionListDataSource : UITableViewDataSource {
         guard let quantityOfItems = promotionListController?.promotionList.quantityOfItems() else {
             return 0
         }
-    
         return quantityOfItems
     }
     
@@ -41,6 +40,8 @@ extension PromotionListDataSource : UITableViewDataSource {
         
         guard let promotionModel = promotionListController?.promotionList.promotions[indexPath.row] else { return UITableViewCell() }
         guard let availability = promotionListController?.promotionList.promotionsStatus[promotionModel] else { return UITableViewCell() }
+        print(promotionModel)
+        print(availability)
         guard let tableCell = tableView.dequeueReusableCell(withIdentifier: "PromotionCell", for: indexPath) as? PromotionCell else { return UITableViewCell() }
         tableCell.updateLabels(promotionModel: promotionModel, boolean: availability)
         return tableCell

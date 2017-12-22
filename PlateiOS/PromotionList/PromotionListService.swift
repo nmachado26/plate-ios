@@ -18,7 +18,6 @@ final class PromotionListService {
                 var currentToGoPromotions: [PromotionModel] = []
                 let arrayPromotions = response.result.value
                 currentToGoPromotions = try JSONDecoder().decode([PromotionModel].self, from: arrayPromotions!)
-                self.promotionListController?.promotionList.promotions = currentToGoPromotions
                 for model in currentToGoPromotions {
                     self.promotionListController?.promotionList.promotions.append(model)
                     self.promotionListController?.promotionList.promotionsStatus[model] = true
@@ -38,16 +37,16 @@ final class PromotionListService {
                 var currentGoingPromotions: [PromotionModel] = []
                 let arrayPromotions = response.result.value
                 currentGoingPromotions = try JSONDecoder().decode([PromotionModel].self, from: arrayPromotions!)
-                self.promotionListController?.promotionList.promotions = currentGoingPromotions
-                for model in currentGoingPromotions {
-                    self.promotionListController?.promotionList.promotions.append(model)
-                    self.promotionListController?.promotionList.promotionsStatus[model] = false
+                for models in currentGoingPromotions {
+                    self.promotionListController?.promotionList.promotions.append(models)
+                    self.promotionListController?.promotionList.promotionsStatus[models] = false
                 }
                 print("IT HAS RAN THROUGH GOING METHOD")
 //                DispatchQueue.main.sync {
                 self.promotionListController?.promotionListProtocol.loadTable()
 //                }
                  print("LOADED TABLE")
+                
             }catch {
                 print("Error")
             }

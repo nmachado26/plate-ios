@@ -23,14 +23,14 @@ class PromotionListViewController: UIViewController {
     // "wasting" memory to do it, when the controller is used for the first time.
     // Search more to understand better.
     fileprivate lazy var promotionListController: PromotionListController = {
-
+        
         // see that we give self as parameter as the promotionListProtocol because this
         // viewController implements this, and so the controller can use it.
         return PromotionListController(promotionListProtocol: self)
     }()
     
     // TableView outlet
-//    @IBOutlet fileprivate weak var promotionTable: UITableView!
+    //    @IBOutlet fileprivate weak var promotionTable: UITableView!
     @IBOutlet fileprivate weak var promotionTable: UITableView!
     
     // Uses this part of the lifecycle of the view to initialize the promotionsList, one
@@ -45,6 +45,11 @@ class PromotionListViewController: UIViewController {
 // Extension for organization - all the functions, just as the view, are passive and just
 // obey the controller.
 extension PromotionListViewController: PromotionListProtocol {
+    
+    func reloadTable() {
+        promotionTable.reloadData()
+    }
+    
     
     // Method that we will use later to present an alert with two actions, cancel or
     // confirm that you clicked in the "No food left" button.
@@ -64,7 +69,7 @@ extension PromotionListViewController: PromotionListProtocol {
         self.dataSource.promotionListController = self.promotionListController
         promotionTable.dataSource = self.dataSource
         promotionTable.delegate = self.delegate
-
+        
         // Block of code that registers our xib, followed by reload data, to finally put
         // the data saved in the promotionsList in the tableView. 
         let nibName = UINib(nibName: "PromotionCell", bundle: nil)

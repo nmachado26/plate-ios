@@ -21,6 +21,8 @@ final class PromotionListController {
     init(promotionListProtocol: PromotionListProtocol) {
         self.promotionListProtocol = promotionListProtocol
     }
+    
+    var updateUsername = ""
 }
 
 // Extension for organization
@@ -29,11 +31,9 @@ extension PromotionListController {
     // Function that initializes our promotionList. Since it communicates with the
     // database, it is better to keep it here instead of inside the list model.
     func initializePromotionList(username: String) {
+        updateUsername = username
         promotionListService.promotionListController = self
         promotionListService.readPromotionsToGo(username: username)
-//        DispatchQueue.main.sync {
-//            self.promotionListProtocol.loadTable()
-//        }
     }
 }
 
