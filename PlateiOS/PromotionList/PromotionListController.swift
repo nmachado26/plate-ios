@@ -31,7 +31,9 @@ extension PromotionListController {
     // database, it is better to keep it here instead of inside the list model.
     func initializePromotionList(username: String) {
         promotionListService.promotionListController = self
-        promotionListService.readPromotionsToGo(username: username)
+        promotionListProtocol.showLoading()
+        promotionListService.readPromotions(username: username)
+        promotionListProtocol.hideLoading()
     }
 }
 

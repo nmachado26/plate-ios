@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		011D4FF61FEE6BEE00697697 /* plate splash screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4FF51FEE6BEE00697697 /* plate splash screen.png */; };
-		011D4FF81FEE6C4500697697 /* plate logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4FF71FEE6C4500697697 /* plate logo.png */; };
-		011D4FFA1FEE6D8200697697 /* plate color.png in Resources */ = {isa = PBXBuildFile; fileRef = 011D4FF91FEE6D8200697697 /* plate color.png */; };
 		01241B911FB7B13C0043E206 /* PromotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01241B901FB7B13C0043E206 /* PromotionModel.swift */; };
 		75A4688C13E414DDCF13C501 /* Pods_PlateiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349EA05B303BB49710EBC5EA /* Pods_PlateiOS.framework */; };
 		DB530B721FC3765200FCB77D /* PromotionListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB530B711FC3765200FCB77D /* PromotionListDataSource.swift */; };
@@ -20,6 +17,7 @@
 		DB5A4E701FCF4C7100DCDACA /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4E6F1FCF4C7100DCDACA /* LoginPageViewController.swift */; };
 		DB87C6AC1FD2868A00C2B0C4 /* LoginPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C6AB1FD2868A00C2B0C4 /* LoginPageService.swift */; };
 		DB87C6AE1FD286A200C2B0C4 /* PromotionListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C6AD1FD286A200C2B0C4 /* PromotionListService.swift */; };
+		DBAB093C1FF15117008E0A2A /* PlateColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB093B1FF15117008E0A2A /* PlateColors.swift */; };
 		DBBB28F21FBFD8A100922BB2 /* PromotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB28F01FBFD8A100922BB2 /* PromotionCell.swift */; };
 		DBBB28F31FBFD8A100922BB2 /* PromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBBB28F11FBFD8A100922BB2 /* PromotionCell.xib */; };
 		DBBB28F51FBFDCA000922BB2 /* PromotionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB28F41FBFDCA000922BB2 /* PromotionListViewController.swift */; };
@@ -27,15 +25,12 @@
 		DBECFB921F99DC9D0081C09A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECFB911F99DC9D0081C09A /* AppDelegate.swift */; };
 		DBECFB971F99DC9D0081C09A /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECFB951F99DC9D0081C09A /* LoginPage.storyboard */; };
 		DBECFB991F99DC9D0081C09A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBECFB981F99DC9D0081C09A /* Assets.xcassets */; };
-		DBECFB9C1F99DC9D0081C09A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECFB9A1F99DC9D0081C09A /* LaunchScreen.storyboard */; };
+		DBECFB9C1F99DC9D0081C09A /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECFB9A1F99DC9D0081C09A /* SplashScreen.storyboard */; };
 		DBECFBA41F99E93B0081C09A /* PromotionListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECFBA31F99E93B0081C09A /* PromotionListProtocol.swift */; };
 		DBECFBA61F99E95A0081C09A /* PromotionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECFBA51F99E95A0081C09A /* PromotionListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		011D4FF51FEE6BEE00697697 /* plate splash screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plate splash screen.png"; sourceTree = "<group>"; };
-		011D4FF71FEE6C4500697697 /* plate logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plate logo.png"; sourceTree = "<group>"; };
-		011D4FF91FEE6D8200697697 /* plate color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plate color.png"; sourceTree = "<group>"; };
 		01241B901FB7B13C0043E206 /* PromotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionModel.swift; sourceTree = "<group>"; };
 		349EA05B303BB49710EBC5EA /* Pods_PlateiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlateiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B350CA7D606F91FC3F7F7A /* Pods-PlateiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlateiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlateiOS/Pods-PlateiOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +42,7 @@
 		DB5A4E6F1FCF4C7100DCDACA /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		DB87C6AB1FD2868A00C2B0C4 /* LoginPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageService.swift; sourceTree = "<group>"; };
 		DB87C6AD1FD286A200C2B0C4 /* PromotionListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListService.swift; sourceTree = "<group>"; };
+		DBAB093B1FF15117008E0A2A /* PlateColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateColors.swift; sourceTree = "<group>"; };
 		DBBB28F01FBFD8A100922BB2 /* PromotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCell.swift; sourceTree = "<group>"; };
 		DBBB28F11FBFD8A100922BB2 /* PromotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionCell.xib; sourceTree = "<group>"; };
 		DBBB28F41FBFDCA000922BB2 /* PromotionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionListViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +51,7 @@
 		DBECFB911F99DC9D0081C09A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBECFB961F99DC9D0081C09A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginPage.storyboard; sourceTree = "<group>"; };
 		DBECFB981F99DC9D0081C09A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DBECFB9B1F99DC9D0081C09A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DBECFB9B1F99DC9D0081C09A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SplashScreen.storyboard; sourceTree = "<group>"; };
 		DBECFB9D1F99DC9D0081C09A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBECFBA31F99E93B0081C09A /* PromotionListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListProtocol.swift; sourceTree = "<group>"; };
 		DBECFBA51F99E95A0081C09A /* PromotionListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListController.swift; sourceTree = "<group>"; };
@@ -85,8 +81,8 @@
 				DBECFBA31F99E93B0081C09A /* PromotionListProtocol.swift */,
 				DB530B711FC3765200FCB77D /* PromotionListDataSource.swift */,
 				DB530B731FC3766200FCB77D /* PromotionListDelegate.swift */,
-				DB5A4E6C1FCE81C800DCDACA /* PromotionList.storyboard */,
 				DB87C6AD1FD286A200C2B0C4 /* PromotionListService.swift */,
+				DB5A4E6C1FCE81C800DCDACA /* PromotionList.storyboard */,
 			);
 			path = PromotionList;
 			sourceTree = "<group>";
@@ -115,16 +111,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DB43EF3D1FF0157400EDD192 /* Complements */ = {
+			isa = PBXGroup;
+			children = (
+				DBECFB9A1F99DC9D0081C09A /* SplashScreen.storyboard */,
+				DB87C6AB1FD2868A00C2B0C4 /* LoginPageService.swift */,
+			);
+			path = Complements;
+			sourceTree = "<group>";
+		};
 		DB5A4E651FCE804800DCDACA /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
+				DB43EF3D1FF0157400EDD192 /* Complements */,
 				DB5A4E681FCE814100DCDACA /* LoginPageProtocol.swift */,
 				DB5A4E661FCE812200DCDACA /* LoginPageController.swift */,
 				DB5A4E6F1FCF4C7100DCDACA /* LoginPageViewController.swift */,
 				DBECFB951F99DC9D0081C09A /* LoginPage.storyboard */,
-				DB87C6AB1FD2868A00C2B0C4 /* LoginPageService.swift */,
 			);
 			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		DBAB093A1FF150DC008E0A2A /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB093B1FF15117008E0A2A /* PlateColors.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		DBBB28ED1FBFD84100922BB2 /* Cell */ = {
@@ -158,14 +171,11 @@
 		DBECFB901F99DC9D0081C09A /* PlateiOS */ = {
 			isa = PBXGroup;
 			children = (
+				DBAB093A1FF150DC008E0A2A /* Commons */,
 				DB5A4E651FCE804800DCDACA /* LoginPage */,
 				0110FB7D1FAE4E2C00801C9A /* PromotionList */,
 				DBECFB911F99DC9D0081C09A /* AppDelegate.swift */,
 				DBECFB981F99DC9D0081C09A /* Assets.xcassets */,
-				011D4FF91FEE6D8200697697 /* plate color.png */,
-				011D4FF71FEE6C4500697697 /* plate logo.png */,
-				011D4FF51FEE6BEE00697697 /* plate splash screen.png */,
-				DBECFB9A1F99DC9D0081C09A /* LaunchScreen.storyboard */,
 				DBECFB9D1F99DC9D0081C09A /* Info.plist */,
 			);
 			path = PlateiOS;
@@ -233,14 +243,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011D4FF81FEE6C4500697697 /* plate logo.png in Resources */,
 				DBBB28F31FBFD8A100922BB2 /* PromotionCell.xib in Resources */,
-				DBECFB9C1F99DC9D0081C09A /* LaunchScreen.storyboard in Resources */,
+				DBECFB9C1F99DC9D0081C09A /* SplashScreen.storyboard in Resources */,
 				DB5A4E6D1FCE81C800DCDACA /* PromotionList.storyboard in Resources */,
 				DBECFB991F99DC9D0081C09A /* Assets.xcassets in Resources */,
 				DBECFB971F99DC9D0081C09A /* LoginPage.storyboard in Resources */,
-				011D4FF61FEE6BEE00697697 /* plate splash screen.png in Resources */,
-				011D4FFA1FEE6D8200697697 /* plate color.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +324,7 @@
 				DB530B741FC3766200FCB77D /* PromotionListDelegate.swift in Sources */,
 				DBECFBA41F99E93B0081C09A /* PromotionListProtocol.swift in Sources */,
 				DB5A4E701FCF4C7100DCDACA /* LoginPageViewController.swift in Sources */,
+				DBAB093C1FF15117008E0A2A /* PlateColors.swift in Sources */,
 				DB530B721FC3765200FCB77D /* PromotionListDataSource.swift in Sources */,
 				01241B911FB7B13C0043E206 /* PromotionModel.swift in Sources */,
 			);
@@ -333,12 +341,12 @@
 			name = LoginPage.storyboard;
 			sourceTree = "<group>";
 		};
-		DBECFB9A1F99DC9D0081C09A /* LaunchScreen.storyboard */ = {
+		DBECFB9A1F99DC9D0081C09A /* SplashScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DBECFB9B1F99DC9D0081C09A /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = SplashScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

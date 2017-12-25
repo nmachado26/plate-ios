@@ -12,7 +12,13 @@ import Alamofire
 final class PromotionListService {
     private let path = "https://plate-heroku-database.herokuapp.com/"
     var promotionListController: PromotionListController? = nil
-    func readPromotionsToGo(username: String) {
+    
+    func readPromotions(username: String) {
+        readPromotionsToGo(username: username)
+        // change this in the future, maybe completion
+    }
+    
+    fileprivate func readPromotionsToGo(username: String) {
         Alamofire.request(path + "promotions/read/togo/" + username, method: .get, parameters: nil).responseData { response in
             do {
                 var currentToGoPromotions: [PromotionModel] = []
@@ -31,7 +37,7 @@ final class PromotionListService {
             }.resume()
     }
     
-    func readPromotionsGoing(username: String) {
+    fileprivate func readPromotionsGoing(username: String) {
         Alamofire.request(path + "promotions/read/going/" + username, method: .get, parameters: nil).responseData { response in
             do {
                 var currentGoingPromotions: [PromotionModel] = []

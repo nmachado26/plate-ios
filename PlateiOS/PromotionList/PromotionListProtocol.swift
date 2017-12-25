@@ -10,7 +10,9 @@ import UIKit
 
 // Protocol with the functions that the controller can call, ordering the view to execute
 protocol PromotionListProtocol : class {
+    func reloadTable()
+    func showLoading()
+    func hideLoading()
     func showAlert(title: String, message: String, arrayOfActions: [UIAlertAction])
     func loadTable()
-    func reloadTable()
 }

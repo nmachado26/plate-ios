@@ -15,8 +15,7 @@ final class PromotionListDelegate : NSObject {}
 // tableViews, necessary to make it work.
 extension PromotionListDelegate : UITableViewDelegate {
     
-    // Returns the height of the cell - 140 is a random number, change later
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 100
     }
 }

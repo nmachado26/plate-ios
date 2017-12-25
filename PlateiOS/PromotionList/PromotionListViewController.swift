@@ -29,8 +29,15 @@ class PromotionListViewController: UIViewController {
         return PromotionListController(promotionListProtocol: self)
     }()
     
+    // Loading outlet
+    @IBOutlet weak var loading: UIActivityIndicatorView! {
+        didSet {
+            loading.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            loading.color = UIColor(red: 0.79, green: 0.23, blue: 0.20, alpha: 1.0)
+        }
+    }
+    
     // TableView outlet
-    //    @IBOutlet fileprivate weak var promotionTable: UITableView!
     @IBOutlet fileprivate weak var promotionTable: UITableView!
     
     // Uses this part of the lifecycle of the view to initialize the promotionsList, one
@@ -38,6 +45,7 @@ class PromotionListViewController: UIViewController {
     // tableView.
     override func viewDidLoad() {
         super.viewDidLoad()
+        promotionTable.tableFooterView = UIView()
         promotionListController.initializePromotionList(username: username)
     }
 }
@@ -46,10 +54,20 @@ class PromotionListViewController: UIViewController {
 // obey the controller.
 extension PromotionListViewController: PromotionListProtocol {
     
+    // Method to reload the table
     func reloadTable() {
         promotionTable.reloadData()
     }
     
+    func showLoading() {
+        loading.startAnimating()
+        loading.alpha = 1
+    }
+    
+    func hideLoading() {
+        loading.stopAnimating()
+        loading.alpha = 0
+    }
     
     // Method that we will use later to present an alert with two actions, cancel or
     // confirm that you clicked in the "No food left" button.
