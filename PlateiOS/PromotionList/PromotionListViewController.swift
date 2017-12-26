@@ -29,6 +29,16 @@ class PromotionListViewController: UIViewController {
         return PromotionListController(promotionListProtocol: self)
     }()
     
+    // Navigation Bar
+    @IBOutlet weak var navigationBar: UINavigationBar! {
+        didSet {
+            navigationBar.tintColor = UIColor.white
+            navigationBar.isTranslucent = false
+            navigationBar.barTintColor = PlateColors.mainRed
+            navigationBar.backgroundColor = PlateColors.mainRed
+        }
+    }
+    
     // Loading outlet
     @IBOutlet weak var loading: UIActivityIndicatorView! {
         didSet {
@@ -40,6 +50,11 @@ class PromotionListViewController: UIViewController {
     // TableView outlet
     @IBOutlet fileprivate weak var promotionTable: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     // Uses this part of the lifecycle of the view to initialize the promotionsList, one
     // located in the controller, initialized there as well, later used to load the
     // tableView.
@@ -48,6 +63,11 @@ class PromotionListViewController: UIViewController {
         promotionTable.tableFooterView = UIView()
         promotionListController.initializePromotionList(username: username)
     }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+//    }
 }
 
 // Extension for organization - all the functions, just as the view, are passive and just

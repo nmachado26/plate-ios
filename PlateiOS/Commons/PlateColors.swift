@@ -25,4 +25,7 @@ struct PlateColors {
     
     /// #73ffffff
     static let transparentGray = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4548105736)
+    
+    /// #AAA
+    static let darkerGray = #colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1)
 }

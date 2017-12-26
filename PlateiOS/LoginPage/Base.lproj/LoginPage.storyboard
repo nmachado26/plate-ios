@@ -87,6 +87,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="constraintOffset" destination="7K6-g5-Fiq" id="TGT-1L-dNY"/>
                         <outlet property="login_button" destination="htu-rc-PqY" id="MeK-K4-1Cb"/>
                         <outlet property="signup_button" destination="17f-u7-1EQ" id="SiB-Fr-g84"/>
                         <outlet property="username_input" destination="RNf-1W-qWX" id="oBg-Ua-p6l"/>
