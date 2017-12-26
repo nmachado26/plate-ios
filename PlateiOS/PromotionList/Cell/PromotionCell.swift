@@ -13,6 +13,7 @@ import UIKit
 class PromotionCell: UITableViewCell {
     
     var promotionListController: PromotionListController? = nil
+    var confirmationMessageController: ConfirmationMessageController? = nil
     var promotionModel: PromotionModel? = nil
     var availability: Bool? = nil
     
@@ -31,11 +32,19 @@ class PromotionCell: UITableViewCell {
         }
         else {
             //Update calls once the database says there is no food left. No database information for this yet to retrieve, so I just have it set as the second click.
+            let confirmationMessageController = UIStoryboard.init(name: "ConfirmationMessage", bundle: nil).instantiateViewController(withIdentifier: "ConfirmationMessage")
+                as! ConfirmationMessageController
+            confirmationMessageController.eventName = title.text
+                DispatchQueue.main.async {
+                    //??
+                   // self.show(confirmationMessageController, sender: nil)
+                }
+            }
+
             promotionListController?.promotionList.removePromotion(promotionModel: promotionModel!)
             promotionListController?.promotionListProtocol.reloadTable()
         }
     }
-}
 
 //Extension (for organization) that contains one single function
 extension PromotionCell {
