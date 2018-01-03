@@ -10,24 +10,23 @@ import UIKit
 
 final class LoginPageController {
     
-    private let loginPageService: LoginPageService
+    private let loginPageService: LoginPageService = LoginPageService()
     private unowned let loginPageProtocol: LoginPageProtocol
     
     init(loginPageProtocol: LoginPageProtocol) {
         self.loginPageProtocol = loginPageProtocol
-        self.loginPageService = LoginPageService()
     }
 }
 
 extension LoginPageController {
     
     func tryToSignup(username: String) {
-        if(username == "") { //add validations
+        if(username == "") { // add validations
             loginPageProtocol.showErrorMessage(title: "error", message: "Invalid password!")
             return
         }
         
-        loginPageService.registerUser(username: username, completion: { [weak self] success, username in
+        loginPageService.registerUser(username: username, completionRegisterUser: { [weak self] success, username in
             self?.handleRegisterUser(success: success, username: username)
         })
     }
@@ -38,13 +37,14 @@ extension LoginPageController {
             return
         }
         
-        loginPageService.checkUser(username: username, completion: { [weak self] success, username in
+        loginPageService.checkUser(username: username, completionCheckUser: { [weak self] success, username in
             self?.handleCheckUser(success: success, username: username)
         })
     }
 }
 
 extension LoginPageController {
+    
     fileprivate func handleRegisterUser(success: Bool, username: String) {
         if(success == true) {
             let promotionListViewController = UIStoryboard.init(name: "PromotionList", bundle: nil).instantiateViewController(withIdentifier: "PromotionList")

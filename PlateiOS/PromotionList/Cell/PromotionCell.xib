@@ -29,7 +29,7 @@
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <connections>
-                            <action selector="goButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YTr-BQ-vzU"/>
+                            <action selector="buttonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Pai-3X-v37"/>
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcW-Bt-9qp" userLabel="verticalLine">
@@ -44,19 +44,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="282" height="124"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Talk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oun-05-msJ" userLabel="title">
-                                <rect key="frame" x="12" y="28.5" width="270" height="20"/>
+                                <rect key="frame" x="18" y="28.5" width="264" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Huang Center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgk-51-X5o" userLabel="location">
-                                <rect key="frame" x="12" y="56.5" width="270" height="17"/>
+                                <rect key="frame" x="18" y="56.5" width="264" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-11-06 from 17:00 to 18:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhB-Er-s1B" userLabel="time">
-                                <rect key="frame" x="12" y="81.5" width="270" height="14.5"/>
+                                <rect key="frame" x="18" y="81.5" width="264" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,12 +65,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Oun-05-msJ" secondAttribute="trailing" id="1RL-QM-WrE"/>
-                            <constraint firstItem="MhB-Er-s1B" firstAttribute="leading" secondItem="iB5-hF-pm1" secondAttribute="leading" constant="12" id="9o9-Qj-hxS"/>
+                            <constraint firstItem="MhB-Er-s1B" firstAttribute="leading" secondItem="iB5-hF-pm1" secondAttribute="leading" constant="18" id="9o9-Qj-hxS"/>
                             <constraint firstItem="qgk-51-X5o" firstAttribute="top" secondItem="Oun-05-msJ" secondAttribute="bottom" constant="8" id="AK0-uT-tdX"/>
                             <constraint firstItem="MhB-Er-s1B" firstAttribute="top" secondItem="qgk-51-X5o" secondAttribute="bottom" constant="8" id="KGQ-UA-4y3"/>
-                            <constraint firstItem="Oun-05-msJ" firstAttribute="leading" secondItem="iB5-hF-pm1" secondAttribute="leading" constant="12" id="KcU-Mg-uGN"/>
+                            <constraint firstItem="Oun-05-msJ" firstAttribute="leading" secondItem="iB5-hF-pm1" secondAttribute="leading" constant="18" id="KcU-Mg-uGN"/>
                             <constraint firstItem="qgk-51-X5o" firstAttribute="centerY" secondItem="iB5-hF-pm1" secondAttribute="centerY" constant="3" id="ddi-ZS-QIS"/>
-                            <constraint firstItem="qgk-51-X5o" firstAttribute="leading" secondItem="iB5-hF-pm1" secondAttribute="leading" constant="12" id="f3U-oR-KES"/>
+                            <constraint firstItem="qgk-51-X5o" firstAttribute="leading" secondItem="iB5-hF-pm1" secondAttribute="leading" constant="18" id="f3U-oR-KES"/>
                             <constraint firstAttribute="trailing" secondItem="qgk-51-X5o" secondAttribute="trailing" id="ojY-T3-CPT"/>
                             <constraint firstAttribute="trailing" secondItem="MhB-Er-s1B" secondAttribute="trailing" id="ztV-3K-mNr"/>
                         </constraints>
@@ -89,7 +89,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="buttonObj" destination="e2i-M9-X1O" id="Bf7-U0-3la"/>
+                <outlet property="buttonOutlet" destination="e2i-M9-X1O" id="XoJ-Va-czW"/>
                 <outlet property="location" destination="qgk-51-X5o" id="bpB-Ac-zZu"/>
                 <outlet property="time" destination="MhB-Er-s1B" id="Ags-3Y-mi2"/>
                 <outlet property="title" destination="Oun-05-msJ" id="2ST-Uf-yed"/>

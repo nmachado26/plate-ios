@@ -12,22 +12,20 @@ import Alamofire
 final class LoginPageService {
     private let path = "https://plate-heroku-database.herokuapp.com/"
     
-    func registerUser(username: String, completion: @escaping (_ success: Bool, _ username: String) -> Void) {
+    func registerUser(username: String, completionRegisterUser: @escaping (_ success: Bool, _ username: String) -> Void) {
         Alamofire.request(path + "users/create/" + username, method: .get, parameters: nil).responseString { response in
-//            print(response)
             if let stringResponse = response.result.value {
-                let success = (stringResponse == "true")
-                completion(success, username)
+                let success = (stringResponse == "true") // see this
+                completionRegisterUser(success, username)
             }
         }
     }
     
-    func checkUser(username: String, completion: @escaping (_ success: Bool, _ username: String) -> Void) {
+    func checkUser(username: String, completionCheckUser: @escaping (_ success: Bool, _ username: String) -> Void) {
         Alamofire.request(path + "users/read/" + username, method: .get, parameters: nil).responseString { response in
-//            print(response)
             if let stringResponse = response.result.value {
-                let success = (stringResponse == "true")
-                completion(success, username)
+                let success = (stringResponse == "true") // see this
+                completionCheckUser(success, username)
             }
         }
     }

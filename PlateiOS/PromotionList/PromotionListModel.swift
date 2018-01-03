@@ -12,7 +12,7 @@ import Foundation
 class PromotionListModel {
     
     var promotions: [PromotionModel]
-    var promotionsStatus = [PromotionModel : Bool]()
+    var promotionsStatus: [PromotionModel : Bool]
     
     // Empty init, only to have one. We actually initialize it when we do the JSON
     // parsing.

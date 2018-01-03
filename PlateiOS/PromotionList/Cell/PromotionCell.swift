@@ -6,76 +6,70 @@
 //  Copyright © 2017 Renner Leite Lucena. All rights reserved.
 //
 
-
-//splash screen
 import UIKit
 
 class PromotionCell: UITableViewCell {
     
-    var promotionListController: PromotionListController? = nil
     var promotionModel: PromotionModel? = nil
-    var availability: Bool? = nil
+    var firstClick: Bool? = nil
+    var respondToClick: ((PromotionModel, Bool) -> Void)?
     
-    //Outlets for cell elements
     @IBOutlet weak var title: UILabel! {
         didSet {
             title.textColor = UIColor.black
         }
     }
+    
     @IBOutlet weak var location: UILabel! {
         didSet {
             location.textColor = PlateColors.mainGray
         }
     }
+    
     @IBOutlet weak var time: UILabel! {
         didSet {
             time.textColor = PlateColors.mainGray
         }
     }
-    @IBOutlet weak var buttonObj: UIButton! {
+    
+    @IBOutlet weak var buttonOutlet: UIButton! {
         didSet {
-            buttonObj.titleLabel?.textAlignment = NSTextAlignment.center
+            buttonOutlet.titleLabel?.textAlignment = NSTextAlignment.center
         }
     }
+    
     @IBOutlet weak var verticalLine: UIView! {
         didSet {
             verticalLine.backgroundColor = PlateColors.darkerGray
         }
     }
     
-    @IBAction func goButton(_ sender: Any) {
+    @IBAction func buttonAction(_ sender: Any) {
         // Allows user to confirm they are going and creates a distinction between confirmed xibs. Use guard let later.
-        if(availability!) {
-            buttonObj.setTitle("IS THE FOOD OVER?", for: .normal)
-            buttonObj.setTitleColor(PlateColors.darkerGray, for: .normal)
-            self.availability = false
-        }else {
-            //Update calls once the database says there is no food left. No database information for this yet to retrieve, so I just have it set as the second click.
-            promotionListController?.promotionList.removePromotion(promotionModel: promotionModel!)
-            promotionListController?.promotionListProtocol.reloadTable()
-        }
+        guard let promotionModel = self.promotionModel, let firstClick = self.firstClick else { return }
+        self.respondToClick?(promotionModel, firstClick)
     }
 }
 
 // Extension (for organization) that contains one single function
 extension PromotionCell {
     
-    // Function that updates the outlet labels
-    public func updateLabels(promotionModel: PromotionModel, availability: Bool) {
+    // Function that init the cell optionals and update the outlet labels
+    public func initCell(promotionModel: PromotionModel, firstClick: Bool, respondToClick: @escaping (_ promotionModel: PromotionModel, _ firstClick: Bool) -> Void) {
+        self.firstClick = firstClick
+        self.promotionModel = promotionModel
+        self.respondToClick = respondToClick
+        
         title.text = promotionModel.title
         location.text = promotionModel.location
         time.text = promotionModel.getTime()
         
-        self.availability = availability
-        self.promotionModel = promotionModel
-        
-        if(availability) {
-            buttonObj.setTitle("GOING", for: .normal)
-            buttonObj.setTitleColor(PlateColors.mainGreen, for: .normal)
+        if(firstClick) {
+            buttonOutlet.setTitle("GOING", for: .normal)
+            buttonOutlet.setTitleColor(PlateColors.mainGreen, for: .normal)
         }else {
-//            buttonObj.titleLabel?.lineBreakMode //.numberOfLines = 0;
-            buttonObj.setTitle("IS THE FOOD OVER?", for: .normal)
-            buttonObj.setTitleColor(PlateColors.darkerGray, for: .normal)
+            buttonOutlet.setTitle("IS THE FOOD OVER?", for: .normal)
+            buttonOutlet.setTitleColor(PlateColors.darkerGray, for: .normal)
         }
     }
 }

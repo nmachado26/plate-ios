@@ -14,14 +14,15 @@ final class PromotionListController {
     
     let promotionListService = PromotionListService()
     var promotionList = PromotionListModel()
-    unowned let promotionListProtocol: PromotionListProtocol
+    let username: String
+    unowned let promotionListProtocol: PromotionListProtocol // search about unowned
     
     // init of the controller, with the communication channel to the viewController
     // being the promotionListProtocol
-    init(promotionListProtocol: PromotionListProtocol) {
+    init(username: String, promotionListProtocol: PromotionListProtocol) {
+        self.username = username
         self.promotionListProtocol = promotionListProtocol
     }
-
 }
 
 // Extension for organization
@@ -30,10 +31,77 @@ extension PromotionListController {
     // Function that initializes our promotionList. Since it communicates with the
     // database, it is better to keep it here instead of inside the list model.
     func initializePromotionList(username: String) {
-        promotionListService.promotionListController = self
         promotionListProtocol.showLoading()
-        promotionListService.readPromotions(username: username)
+        
+        promotionListService.readPromotionsToGo(username: username, completionReadPromotionsToGo: { [weak self] success, toGoPromotions in
+            self?.handleReadPromotionsToGo(success: success, toGoPromotions: toGoPromotions, username: username)
+        })
+        
         promotionListProtocol.hideLoading()
+    }
+    
+    func respondToClickOnController(promotionModel: PromotionModel, firstClick: Bool) {
+        if(firstClick) {
+            promotionListService.createRequest(username: username, promotion_id: promotionModel.promotion_id, request_code: "0", completionCreateRequest: { [weak self] success, promotionModel in
+                self?.handleCreateRequest(success: success, promotionModel: promotionModel)
+            })
+        }else {
+            //dialog
+//            promotionListService.createRequest(username: username, promotion_id: promotionModel.promotion_id, request_code: "1", completionCreateRequest: { [weak self] success, promotionModel in
+//                self?.handleCreateRequest(success: success, promotionModel: promotionModel)
+//            }) // see literal 1
+//            promotionList.removePromotion(promotionModel: promotionModel)
+//            promotionListProtocol.reloadTable()
+        }
     }
 }
 
+extension PromotionListController {
+    
+    func handleReadPromotionsToGo(success: Bool, toGoPromotions: [PromotionModel]?, username: String) {
+        if(success) {
+            for model in toGoPromotions ?? [] { // change this later maybe
+                promotionList.promotions.append(model)
+                promotionList.promotionsStatus[model] = true
+            }
+            
+            promotionListService.readPromotionsGoing(username: username, completionReadPromotionsGoing: { [weak self] success, goingPromotions in
+                self?.handleReadPromotionsGoing(success: success, goingPromotions: goingPromotions)
+            })
+        }else {
+            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+        }
+    }
+    
+    func handleReadPromotionsGoing(success: Bool, goingPromotions: [PromotionModel]?) {
+        if(success) {
+            for model in goingPromotions ?? [] { // change this later maybe
+                promotionList.promotions.append(model)
+                promotionList.promotionsStatus[model] = false
+            }
+            // see dispatch main queue theory - command below should be in the main queue
+            promotionListProtocol.loadTable()
+        }else {
+            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+        }
+    }
+    
+    func handleCreateRequest(success: Bool, promotionModel: PromotionModel) {
+        if(success) {
+            // maybe the other way
+            promotionList.promotionsStatus[promotionModel] = false
+            promotionListProtocol.reloadTable()
+        }else {
+            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+        }
+    }
+    
+    func handleCreatePromotion(success: Bool, promotionModel: PromotionModel) {
+        if(success) {
+            promotionList.promotionsStatus[promotionModel] = false
+            promotionListProtocol.reloadTable()
+        }else {
+            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+        }
+    }
+}

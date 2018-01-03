@@ -26,7 +26,7 @@ class PromotionListViewController: UIViewController {
         
         // see that we give self as parameter as the promotionListProtocol because this
         // viewController implements this, and so the controller can use it.
-        return PromotionListController(promotionListProtocol: self)
+        return PromotionListController(username: username, promotionListProtocol: self)
     }()
     
     // Navigation Bar
@@ -43,7 +43,7 @@ class PromotionListViewController: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView! {
         didSet {
             loading.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-            loading.color = UIColor(red: 0.79, green: 0.23, blue: 0.20, alpha: 1.0)
+            loading.color = PlateColors.mainRed // UIColor(red: 0.79, green: 0.23, blue: 0.20, alpha: 1.0)
         }
     }
     
@@ -74,7 +74,11 @@ class PromotionListViewController: UIViewController {
 // obey the controller.
 extension PromotionListViewController: PromotionListProtocol {
     
-    // Method to reload the table
+    func showErrorMessage(title : String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+    }
+    
     func reloadTable() {
         promotionTable.reloadData()
     }
@@ -115,4 +119,3 @@ extension PromotionListViewController: PromotionListProtocol {
         promotionTable.reloadData()
     }
 }
-

@@ -39,10 +39,12 @@ extension PromotionListDataSource : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let promotionModel = promotionListController?.promotionList.promotions[indexPath.row] else { return UITableViewCell() }
-        guard let availability = promotionListController?.promotionList.promotionsStatus[promotionModel] else { return UITableViewCell() }
+        guard let firstClick = promotionListController?.promotionList.promotionsStatus[promotionModel] else { return UITableViewCell() }
         guard let tableCell = tableView.dequeueReusableCell(withIdentifier: "PromotionCell", for: indexPath) as? PromotionCell else { return UITableViewCell() }
-        tableCell.promotionListController = self.promotionListController
-        tableCell.updateLabels(promotionModel: promotionModel, availability: availability)
+        
+        tableCell.initCell(promotionModel: promotionModel, firstClick: firstClick, respondToClick: { [weak self] promotionModel, firstClick in
+            self?.promotionListController?.respondToClickOnController(promotionModel: promotionModel, firstClick: firstClick)
+        })
         return tableCell
     }
 }

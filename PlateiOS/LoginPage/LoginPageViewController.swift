@@ -62,6 +62,7 @@ class LoginPageViewController: UIViewController {
 }
 
 extension UIViewController {
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -77,14 +78,6 @@ extension LoginPageViewController: LoginPageProtocol {
     func showErrorMessage(title : String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
-    }
-    
-    func showAlert() {
-        
-    }
-    
-    func setItemsList(promotions: [PromotionModel]) {
-        
     }
     
     func openViewController(controller: UIViewController) {
