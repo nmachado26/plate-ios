@@ -14,6 +14,7 @@ final class PromotionListController {
     
     let promotionListService = PromotionListService()
     var promotionList = PromotionListModel()
+    
     let username: String
     unowned let promotionListProtocol: PromotionListProtocol // search about unowned
     
@@ -42,14 +43,15 @@ extension PromotionListController {
     
     func respondToClickOnController(promotionModel: PromotionModel, firstClick: Bool) {
         if(firstClick) {
-            promotionListService.createRequest(username: username, promotion_id: promotionModel.promotion_id, request_code: "0", completionCreateRequest: { [weak self] success, promotionModel in
-                self?.handleCreateRequest(success: success, promotionModel: promotionModel)
-            })
+            promotionListService.createRequestGoing(username: username, promotion_id: promotionModel.promotion_id, request_code: "0", completionCreateRequestGoing: { [weak self] success in
+                self?.handleCreateRequestGoing(success: success, promotionModel: promotionModel)
+            }) // see literal 0
         }else {
-            //dialog
+            
 //            promotionListService.createRequest(username: username, promotion_id: promotionModel.promotion_id, request_code: "1", completionCreateRequest: { [weak self] success, promotionModel in
-//                self?.handleCreateRequest(success: success, promotionModel: promotionModel)
+//                self?.handleCreateRequestNoFoodLeft(success: success, promotionModel: promotionModel)
 //            }) // see literal 1
+            
 //            promotionList.removePromotion(promotionModel: promotionModel)
 //            promotionListProtocol.reloadTable()
         }
@@ -86,7 +88,7 @@ extension PromotionListController {
         }
     }
     
-    func handleCreateRequest(success: Bool, promotionModel: PromotionModel) {
+    func handleCreateRequestGoing(success: Bool, promotionModel: PromotionModel) {
         if(success) {
             // maybe the other way
             promotionList.promotionsStatus[promotionModel] = false
@@ -97,11 +99,11 @@ extension PromotionListController {
     }
     
     func handleCreatePromotion(success: Bool, promotionModel: PromotionModel) {
-        if(success) {
-            promotionList.promotionsStatus[promotionModel] = false
-            promotionListProtocol.reloadTable()
-        }else {
-            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
-        }
+//        if(success) {
+//            promotionList.promotionsStatus[promotionModel] = false
+//            promotionListProtocol.reloadTable()
+//        }else {
+//            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+//        }
     }
 }

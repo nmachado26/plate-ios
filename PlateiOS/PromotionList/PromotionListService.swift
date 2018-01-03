@@ -23,7 +23,7 @@ final class PromotionListService {
             }catch {
                 completionReadPromotionsToGo(false, nil)
             }
-        }.resume()
+        }.resume() // why .resume()??
     }
     
     func readPromotionsGoing(username: String, completionReadPromotionsGoing: @escaping (_ success: Bool, _ toGoPromotions: [PromotionModel]?) -> Void) {
@@ -39,15 +39,11 @@ final class PromotionListService {
         }.resume()
     }
     
-    func createRequest(username: String, promotion_id: String, request_code: String, completionCreateRequest: @escaping (_ success: Bool, _ PromotionModel: PromotionModel) -> Void) {
-        Alamofire.request(path + "requests/create/" + username + "/" + promotion_id + "/" + request_code, method: .post, parameters: nil).responseData { response in
-            do {
-                var goingPromotions: [PromotionModel] = []
-                let arrayPromotions = response.result.value
-                goingPromotions = try JSONDecoder().decode([PromotionModel].self, from: arrayPromotions!)
-                completionReadPromotionsGoing(true, goingPromotions)
-            }catch {
-                completionReadPromotionsGoing(false, nil)
+    func createRequestGoing(username: String, promotion_id: String, request_code: String, completionCreateRequestGoing: @escaping (_ success: Bool) -> Void) {
+        Alamofire.request(path + "requests/create/" + username + "/" + promotion_id + "/" + request_code, method: .post, parameters: nil).responseString { response in
+            if let stringResponse = response.result.value {
+                let success = (stringResponse == "true")
+                completionCreateRequestGoing(success)
             }
         }.resume()
     }
