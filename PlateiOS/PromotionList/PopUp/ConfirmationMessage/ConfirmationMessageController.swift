@@ -45,7 +45,6 @@ extension ConfirmationMessageController {
     
     public func closePopup() {
         self.dismissAnimated()
-        // or self.dismiss(..
     }
 }
 
@@ -79,7 +78,8 @@ extension ConfirmationMessageController {
 
 extension ConfirmationMessageController {
     
-    //init the message
+    //init the message controller
+    //HAS NOT BEEN CALLED
     fileprivate func setUpMessage(for messageView: ConfirmationPopUp) {
         messageView.closeFunction = { [weak self] in
             self?.closePopup()

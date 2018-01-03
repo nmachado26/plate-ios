@@ -19,7 +19,6 @@ class PromotionModel: Decodable, Hashable {
          return lhs.promotion_id == rhs.promotion_id
     }
     
-    
     var promotion_id : String
     var title : String
     var start_time : String

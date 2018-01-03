@@ -13,4 +13,5 @@ protocol PromotionListProtocol : class {
     func showAlert(title: String, message: String, arrayOfActions: [UIAlertAction])
     func loadTable()
     func reloadTable()
+    func openViewController(controller: UIViewController) 
 }

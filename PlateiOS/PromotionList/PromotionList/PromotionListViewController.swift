@@ -76,5 +76,11 @@ extension PromotionListViewController: PromotionListProtocol {
         promotionTable.register(nibName, forCellReuseIdentifier: "PromotionCell")
         promotionTable.reloadData()
     }
+    
+    func openViewController(controller: UIViewController) {
+        DispatchQueue.main.async {
+            self.show(controller, sender: nil)
+        }
+    }
 }
 
