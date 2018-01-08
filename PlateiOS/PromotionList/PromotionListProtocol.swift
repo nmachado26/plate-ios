@@ -17,4 +17,6 @@ protocol PromotionListProtocol : class {
     func hideLoading()
     func showAlert(title: String, message: String, arrayOfActions: [UIAlertAction])
     func loadTable()
+    func openViewController(controller: UIViewController)
+    func presentViewController(controller: UIViewController)
 }

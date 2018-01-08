@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // The controller, which contains all the logic - change to Controller later or see how
 // they call it on the internet.
@@ -43,17 +44,19 @@ extension PromotionListController {
     
     func respondToClickOnController(promotionModel: PromotionModel, firstClick: Bool) {
         if(firstClick) {
-            promotionListService.createRequestGoing(username: username, promotion_id: promotionModel.promotion_id, request_code: "0", completionCreateRequestGoing: { [weak self] success in
+            promotionListService.createRequest(username: username, promotion_id: promotionModel.promotion_id, request_code: "0", completionCreateRequest: { [weak self] success in
                 self?.handleCreateRequestGoing(success: success, promotionModel: promotionModel)
             }) // see literal 0
         }else {
+            let noFoodDialogViewController = UIStoryboard.init(name: "NoFoodDialog", bundle: nil).instantiateViewController(withIdentifier: "NoFoodDialog") as! NoFoodDialogViewController
             
-//            promotionListService.createRequest(username: username, promotion_id: promotionModel.promotion_id, request_code: "1", completionCreateRequest: { [weak self] success, promotionModel in
-//                self?.handleCreateRequestNoFoodLeft(success: success, promotionModel: promotionModel)
-//            }) // see literal 1
+            noFoodDialogViewController.promotionModel = promotionModel
+            noFoodDialogViewController.positiveFunction = { [weak self] in
+                self?.promotionListService.createRequest(username: (self?.username)!, promotion_id: promotionModel.promotion_id, request_code: "1", completionCreateRequest: { [weak self] success in
+                    self?.handleCreateRequestToGo(success: success, promotionModel: promotionModel)
+            })}
             
-//            promotionList.removePromotion(promotionModel: promotionModel)
-//            promotionListProtocol.reloadTable()
+            promotionListProtocol.presentViewController(controller: noFoodDialogViewController)
         }
     }
 }
@@ -90,7 +93,7 @@ extension PromotionListController {
     
     func handleCreateRequestGoing(success: Bool, promotionModel: PromotionModel) {
         if(success) {
-            // maybe the other way
+            // maybe the other way - change cell only
             promotionList.promotionsStatus[promotionModel] = false
             promotionListProtocol.reloadTable()
         }else {
@@ -98,12 +101,21 @@ extension PromotionListController {
         }
     }
     
+    func handleCreateRequestToGo(success: Bool, promotionModel: PromotionModel) {
+        if(success) {
+            promotionList.removePromotion(promotionModel: promotionModel)
+            promotionListProtocol.reloadTable()
+        }else {
+            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+        }
+    }
+    
     func handleCreatePromotion(success: Bool, promotionModel: PromotionModel) {
-//        if(success) {
-//            promotionList.promotionsStatus[promotionModel] = false
-//            promotionListProtocol.reloadTable()
-//        }else {
-//            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
-//        }
+        //        if(success) {
+        //            promotionList.promotionsStatus[promotionModel] = false
+        //            promotionListProtocol.reloadTable()
+        //        }else {
+        //            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+        //        }
     }
 }

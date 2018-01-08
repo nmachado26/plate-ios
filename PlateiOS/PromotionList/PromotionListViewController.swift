@@ -76,6 +76,8 @@ extension PromotionListViewController: PromotionListProtocol {
     
     func showErrorMessage(title : String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }
     
@@ -117,5 +119,17 @@ extension PromotionListViewController: PromotionListProtocol {
         let nibName = UINib(nibName: "PromotionCell", bundle: nil)
         promotionTable.register(nibName, forCellReuseIdentifier: "PromotionCell")
         promotionTable.reloadData()
+    }
+    
+    func openViewController(controller: UIViewController) {
+        DispatchQueue.main.async {
+            self.show(controller, sender: nil)
+        }
+    }
+    
+    func presentViewController(controller: UIViewController) {
+        DispatchQueue.main.async {
+            self.present(controller, animated: true, completion: nil)
+        }
     }
 }

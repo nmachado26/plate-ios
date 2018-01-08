@@ -11,7 +11,7 @@ import Alamofire
 
 final class PromotionListService {
     
-    private let path = "https://plate-heroku-database.herokuapp.com/"
+    private let path = "https://plate-heroku-database.herokuapp.com/" //TODO: create development
     
     func readPromotionsToGo(username: String, completionReadPromotionsToGo: @escaping (_ success: Bool, _ toGoPromotions: [PromotionModel]?) -> Void) {
         Alamofire.request(path + "promotions/read/togo/" + username, method: .get, parameters: nil).responseData { response in
@@ -39,11 +39,11 @@ final class PromotionListService {
         }.resume()
     }
     
-    func createRequestGoing(username: String, promotion_id: String, request_code: String, completionCreateRequestGoing: @escaping (_ success: Bool) -> Void) {
+    func createRequest(username: String, promotion_id: String, request_code: String, completionCreateRequest: @escaping (_ success: Bool) -> Void) {
         Alamofire.request(path + "requests/create/" + username + "/" + promotion_id + "/" + request_code, method: .post, parameters: nil).responseString { response in
             if let stringResponse = response.result.value {
                 let success = (stringResponse == "true")
-                completionCreateRequestGoing(success)
+                completionCreateRequest(success)
             }
         }.resume()
     }

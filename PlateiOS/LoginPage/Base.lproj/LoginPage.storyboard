@@ -34,7 +34,7 @@
                                     <color key="titleColor" red="0.79239267110824585" green="0.29075247049331665" blue="0.2245279848575592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="login_button_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Agx-r6-jJX"/>
+                                    <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wqW-FR-Av7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNf-1W-qWX">
@@ -57,7 +57,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signup_button_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="73k-hZ-myz"/>
+                                    <action selector="signupButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HCk-dq-p1I"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOt-b6-zp8">
@@ -88,9 +88,9 @@
                     </view>
                     <connections>
                         <outlet property="constraintOffset" destination="7K6-g5-Fiq" id="TGT-1L-dNY"/>
-                        <outlet property="login_button" destination="htu-rc-PqY" id="MeK-K4-1Cb"/>
-                        <outlet property="signup_button" destination="17f-u7-1EQ" id="SiB-Fr-g84"/>
-                        <outlet property="username_input" destination="RNf-1W-qWX" id="oBg-Ua-p6l"/>
+                        <outlet property="loginButton" destination="htu-rc-PqY" id="jML-pd-xTy"/>
+                        <outlet property="signupButton" destination="17f-u7-1EQ" id="9BE-Fj-Xn3"/>
+                        <outlet property="usernameInput" destination="RNf-1W-qWX" id="iq3-Sq-cR5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
