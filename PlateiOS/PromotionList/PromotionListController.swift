@@ -42,7 +42,7 @@ extension PromotionListController {
         promotionListProtocol.hideLoading()
     }
     
-    func respondToClickOnController(promotionModel: PromotionModel, firstClick: Bool) {
+    func respondToCellButtonClickOnController(promotionModel: PromotionModel, firstClick: Bool) {
         if(firstClick) {
             promotionListService.createRequest(username: username, promotion_id: promotionModel.promotion_id, request_code: "0", completionCreateRequest: { [weak self] success in
                 self?.handleCreateRequestGoing(success: success, promotionModel: promotionModel)
@@ -59,6 +59,8 @@ extension PromotionListController {
             promotionListProtocol.presentViewController(controller: noFoodDialogViewController)
         }
     }
+    
+//    AddPromotionDialogViewController
 }
 
 extension PromotionListController {

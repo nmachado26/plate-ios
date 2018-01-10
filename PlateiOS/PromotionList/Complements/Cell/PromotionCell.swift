@@ -12,7 +12,7 @@ class PromotionCell: UITableViewCell {
     
     var promotionModel: PromotionModel? = nil
     var firstClick: Bool? = nil
-    var respondToClick: ((PromotionModel, Bool) -> Void)?
+    var respondToCellButtonClick: ((PromotionModel, Bool) -> Void)?
     
     @IBOutlet weak var title: UILabel! {
         didSet {
@@ -47,7 +47,7 @@ class PromotionCell: UITableViewCell {
     @IBAction func buttonAction(_ sender: Any) {
         // Allows user to confirm they are going and creates a distinction between confirmed xibs. Use guard let later.
         guard let promotionModel = self.promotionModel, let firstClick = self.firstClick else { return }
-        self.respondToClick?(promotionModel, firstClick)
+        self.respondToCellButtonClick?(promotionModel, firstClick)
     }
 }
 
@@ -55,10 +55,10 @@ class PromotionCell: UITableViewCell {
 extension PromotionCell {
     
     // Function that init the cell optionals and update the outlet labels
-    public func initCell(promotionModel: PromotionModel, firstClick: Bool, respondToClick: @escaping (_ promotionModel: PromotionModel, _ firstClick: Bool) -> Void) {
+    public func initCell(promotionModel: PromotionModel, firstClick: Bool, respondToCellButtonClick: @escaping (_ promotionModel: PromotionModel, _ firstClick: Bool) -> Void) {
         self.firstClick = firstClick
         self.promotionModel = promotionModel
-        self.respondToClick = respondToClick
+        self.respondToCellButtonClick = respondToCellButtonClick
         
         title.text = promotionModel.title
         location.text = promotionModel.location

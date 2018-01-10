@@ -37,7 +37,7 @@
                                     <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wqW-FR-Av7"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNf-1W-qWX">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNf-1W-qWX">
                                 <rect key="frame" x="63" y="394" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0Rq-Rh-AZq"/>

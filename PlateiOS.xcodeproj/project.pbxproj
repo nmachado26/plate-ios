@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		01241B911FB7B13C0043E206 /* PromotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01241B901FB7B13C0043E206 /* PromotionModel.swift */; };
 		75A4688C13E414DDCF13C501 /* Pods_PlateiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349EA05B303BB49710EBC5EA /* Pods_PlateiOS.framework */; };
+		DB1CE736200418AE00784ECF /* AddPromotionDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CE735200418AD00784ECF /* AddPromotionDialogViewController.swift */; };
+		DB1CE73A2004194100784ECF /* InputPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CE7392004194100784ECF /* InputPopUp.swift */; };
+		DB1CE73C2004194F00784ECF /* InputPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1CE73B2004194F00784ECF /* InputPopUp.xib */; };
+		DB1CE73E20041A4E00784ECF /* AddPromotionDialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1CE73D20041A4E00784ECF /* AddPromotionDialog.storyboard */; };
 		DB530B721FC3765200FCB77D /* PromotionListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB530B711FC3765200FCB77D /* PromotionListDataSource.swift */; };
 		DB530B741FC3766200FCB77D /* PromotionListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB530B731FC3766200FCB77D /* PromotionListDelegate.swift */; };
 		DB5A4E671FCE812200DCDACA /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4E661FCE812200DCDACA /* LoginPageController.swift */; };
@@ -39,6 +43,10 @@
 		01241B901FB7B13C0043E206 /* PromotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionModel.swift; sourceTree = "<group>"; };
 		349EA05B303BB49710EBC5EA /* Pods_PlateiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlateiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B350CA7D606F91FC3F7F7A /* Pods-PlateiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlateiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlateiOS/Pods-PlateiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DB1CE735200418AD00784ECF /* AddPromotionDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromotionDialogViewController.swift; sourceTree = "<group>"; };
+		DB1CE7392004194100784ECF /* InputPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPopUp.swift; sourceTree = "<group>"; };
+		DB1CE73B2004194F00784ECF /* InputPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputPopUp.xib; sourceTree = "<group>"; };
+		DB1CE73D20041A4E00784ECF /* AddPromotionDialog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPromotionDialog.storyboard; sourceTree = "<group>"; };
 		DB530B711FC3765200FCB77D /* PromotionListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListDataSource.swift; sourceTree = "<group>"; };
 		DB530B731FC3766200FCB77D /* PromotionListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListDelegate.swift; sourceTree = "<group>"; };
 		DB5A4E661FCE812200DCDACA /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
@@ -118,6 +126,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DB1CE7342004187400784ECF /* AddPromotionDialog */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CE735200418AD00784ECF /* AddPromotionDialogViewController.swift */,
+				DB1CE73D20041A4E00784ECF /* AddPromotionDialog.storyboard */,
+				DB1CE7392004194100784ECF /* InputPopUp.swift */,
+				DB1CE73B2004194F00784ECF /* InputPopUp.xib */,
+			);
+			path = AddPromotionDialog;
+			sourceTree = "<group>";
+		};
 		DB43EF3D1FF0157400EDD192 /* Complements */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +191,7 @@
 		DBCAE8A62003CC340050D476 /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
+				DB1CE7342004187400784ECF /* AddPromotionDialog */,
 				DBCAE8A72003CEBC0050D476 /* NoFoodDialog */,
 			);
 			path = Dialogs;
@@ -285,7 +305,9 @@
 				DBBB28F31FBFD8A100922BB2 /* PromotionCell.xib in Resources */,
 				DBECFB9C1F99DC9D0081C09A /* SplashScreen.storyboard in Resources */,
 				DB5A4E6D1FCE81C800DCDACA /* PromotionList.storyboard in Resources */,
+				DB1CE73E20041A4E00784ECF /* AddPromotionDialog.storyboard in Resources */,
 				DBECFB991F99DC9D0081C09A /* Assets.xcassets in Resources */,
+				DB1CE73C2004194F00784ECF /* InputPopUp.xib in Resources */,
 				DBCAE8AE2003CF880050D476 /* ConfirmationPopUp.xib in Resources */,
 				DBCAE8A120030CE60050D476 /* NoFoodDialog.storyboard in Resources */,
 				DBECFB971F99DC9D0081C09A /* LoginPage.storyboard in Resources */,
@@ -359,6 +381,8 @@
 				DBBB28F71FBFE66F00922BB2 /* PromotionListModel.swift in Sources */,
 				DBECFB921F99DC9D0081C09A /* AppDelegate.swift in Sources */,
 				DB87C6AC1FD2868A00C2B0C4 /* LoginPageService.swift in Sources */,
+				DB1CE736200418AE00784ECF /* AddPromotionDialogViewController.swift in Sources */,
+				DB1CE73A2004194100784ECF /* InputPopUp.swift in Sources */,
 				DB5A4E691FCE814100DCDACA /* LoginPageProtocol.swift in Sources */,
 				DBBB28F21FBFD8A100922BB2 /* PromotionCell.swift in Sources */,
 				DBCAE8A320030DCF0050D476 /* NoFoodDialogViewController.swift in Sources */,

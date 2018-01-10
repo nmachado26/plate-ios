@@ -42,8 +42,8 @@ extension PromotionListDataSource : UITableViewDataSource {
         guard let firstClick = promotionListController?.promotionList.promotionsStatus[promotionModel] else { return UITableViewCell() }
         guard let tableCell = tableView.dequeueReusableCell(withIdentifier: "PromotionCell", for: indexPath) as? PromotionCell else { return UITableViewCell() }
         
-        tableCell.initCell(promotionModel: promotionModel, firstClick: firstClick, respondToClick: { [weak self] promotionModel, firstClick in
-            self?.promotionListController?.respondToClickOnController(promotionModel: promotionModel, firstClick: firstClick)
+        tableCell.initCell(promotionModel: promotionModel, firstClick: firstClick, respondToCellButtonClick: { [weak self] promotionModel, firstClick in
+            self?.promotionListController?.respondToCellButtonClickOnController(promotionModel: promotionModel, firstClick: firstClick)
         })
         return tableCell
     }

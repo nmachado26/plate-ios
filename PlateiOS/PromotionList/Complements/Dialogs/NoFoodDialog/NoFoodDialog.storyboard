@@ -26,17 +26,17 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdO-zD-eaa" userLabel="No Food Dialog">
-                                <rect key="frame" x="32.5" y="221" width="310" height="220"/>
+                                <rect key="frame" x="32.5" y="233.5" width="310" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="310" id="WUW-5L-eec"/>
-                                    <constraint firstAttribute="height" constant="220" id="kKg-gY-2xW"/>
+                                    <constraint firstAttribute="height" constant="200" id="kKg-gY-2xW"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2g2-If-MB3" firstAttribute="top" secondItem="NWp-Mv-sSX" secondAttribute="bottom" id="EL5-uE-eZh"/>
-                            <constraint firstItem="QdO-zD-eaa" firstAttribute="centerY" secondItem="or2-a2-Vgb" secondAttribute="centerY" constant="-2.5" id="KDo-La-XVa"/>
+                            <constraint firstItem="2g2-If-MB3" firstAttribute="top" secondItem="NWp-Mv-sSX" secondAttribute="bottom" id="Ebb-WO-jAc"/>
+                            <constraint firstItem="QdO-zD-eaa" firstAttribute="centerY" secondItem="or2-a2-Vgb" secondAttribute="centerY" id="KDo-La-XVa"/>
                             <constraint firstAttribute="trailing" secondItem="NWp-Mv-sSX" secondAttribute="trailing" id="Pks-4P-7MW"/>
                             <constraint firstItem="NWp-Mv-sSX" firstAttribute="top" secondItem="or2-a2-Vgb" secondAttribute="top" id="XsW-Oh-Q3B"/>
                             <constraint firstItem="NWp-Mv-sSX" firstAttribute="leading" secondItem="or2-a2-Vgb" secondAttribute="leading" id="f4N-ha-jNc"/>
