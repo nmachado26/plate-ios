@@ -19,22 +19,12 @@ class AddPromotionDialogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTappedAround()
         setupTapCloseAction()
         setupUI()
     }
 }
 
 extension AddPromotionDialogViewController {
-    
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
     
     fileprivate func setupTapCloseAction() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -83,6 +73,7 @@ extension AddPromotionDialogViewController {
         }
         
         inputPopUpView.textFieldDidEndEditingFunction = { [weak self] in
+            self?.view.endEditing(true)
             self?.constraintOffset.constant = 0
             self?.view.layoutIfNeeded()
         }
@@ -103,4 +94,3 @@ extension AddPromotionDialogViewController {
         subview.leadingAnchor.constraint(equalTo: addPromotionDialog.leadingAnchor).isActive = true
     }
 }
-

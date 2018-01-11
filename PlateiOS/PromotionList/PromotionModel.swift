@@ -19,18 +19,18 @@ class PromotionModel: Decodable, Hashable {
          return lhs.promotion_id == rhs.promotion_id
     }
     
-    var promotion_id : String
-    var title : String
-    var start_time : String
-    var end_time : String
-    var location : String
+    var promotion_id: String = ""
+    var title: String = ""
+    var start_time: String = ""
+    var end_time: String = ""
+    var location: String = ""
     
     // The inits can be in the declaration of the class (not necesssary to have extension for this)
-    init(promotion_id: String, title: String, start_time: String, end_time: String, location: String) {
+    init(promotion_id: String, title: String, start_time: String, end_time: String, location: String) {        
         self.promotion_id = promotion_id
         self.title = title
-        self.start_time = start_time
-        self.end_time = end_time
+        self.start_time = formatTime(time: start_time)
+        self.end_time = formatTime(time: end_time)
         self.location = location
     }
 }
@@ -38,35 +38,50 @@ class PromotionModel: Decodable, Hashable {
 // Extension for organization
 extension PromotionModel {
     
-    // Single function that returns a string with the start and end times.
-    public func getTime() -> String {
+    fileprivate func formatTime(time: String) -> String {
+        let dateFormatterOutput = DateFormatter()
+        dateFormatterOutput.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
-        //parses the time string to output cleaner time frame
-        let startString = parseStartTime()
-        let endString = parseEndTime()
-        return (startString + " - " + endString)
+        let time_output: Date? = dateFormatterOutput.date(from: time)
+        if time_output != nil {
+            return time
+        }
+        
+        let dateFormatterInput = DateFormatter()
+        dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        let time_input: Date? = dateFormatterInput.date(from: start_time)
+        
+        if let time_input = time_input {
+            return dateFormatterOutput.string(from: time_input)
+        }
+        
+        return time
     }
     
-    fileprivate func parseStartTime() -> String {
-        let start = start_time.index(start_time.startIndex, offsetBy: 11)
-        let end = start_time.index(start_time.endIndex, offsetBy: -8)
-        let range = start..<end
-        let startSubstring = start_time[range]  // play
-        
-        //write method to output 12 hour time scale with AM or PM
-        
-        return String(startSubstring)
+    public func getParsedDateTime() -> String {
+        let dateString = getDate(time: start_time)
+        let startTimeString = getTime(time: start_time)
+        let endTimeString = getTime(time: end_time)
+        return (dateString + " from " + startTimeString + " to " + endTimeString)
     }
     
-    fileprivate func parseEndTime() -> String {
-        let start = end_time.index(end_time.startIndex, offsetBy: 11)
-        let end = end_time.index(end_time.endIndex, offsetBy: -8)
+    fileprivate func getDate(time: String) -> String {
+        let start = time.startIndex
+        let end = time.index(time.startIndex, offsetBy: 10)
         let range = start..<end
-        let endSubstring = end_time[range]
+        let dateSubstring = time[range]
         
-        //write method to output 12 hour time scale with AM or PM
+        return String(dateSubstring)
+    }
+    
+    fileprivate func getTime(time: String) -> String {
+        let start = time.index(time.startIndex, offsetBy: 11)
+        let end = time.index(time.endIndex, offsetBy: -8)
+        let range = start..<end
+        let timeSubstring = time[range]  // play
         
-        return String(endSubstring)
+        return String(timeSubstring)
     }
 }
 
