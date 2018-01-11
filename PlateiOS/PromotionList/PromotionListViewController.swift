@@ -54,11 +54,6 @@ class PromotionListViewController: UIViewController {
         promotionListController.respondToPlusButtonClick()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-    
     // Uses this part of the lifecycle of the view to initialize the promotionsList, one
     // located in the controller, initialized there as well, later used to load the
     // tableView.

@@ -26,9 +26,9 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGf-Zg-aTq" userLabel="Add Promotion Dialog">
-                                <rect key="frame" x="32.5" y="148.5" width="310" height="370"/>
+                                <rect key="frame" x="32.5" y="188.5" width="310" height="290"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="370" id="b44-m8-3ca"/>
+                                    <constraint firstAttribute="height" constant="290" id="b44-m8-3ca"/>
                                     <constraint firstAttribute="width" constant="310" id="c0W-Bd-kgN"/>
                                 </constraints>
                             </view>
