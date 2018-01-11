@@ -30,6 +30,11 @@ extension PromotionListModel {
         return promotions.count
     }
     
+    public func addPromotion(promotionModel : PromotionModel) {
+        promotions.append(promotionModel)
+        promotionsStatus[promotionModel] = true
+    }
+    
     public func removePromotion(promotionModel : PromotionModel){
         let index = promotions.index(of: promotionModel)
         promotions.remove(at: index!)

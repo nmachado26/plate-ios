@@ -28,7 +28,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="Hdv-Ou-R4e">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eYT-2t-vlI"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eYT-2t-vlI">
+                                            <connections>
+                                                <action selector="addButtonAction:" destination="5mD-jg-1Jo" id="Mte-zo-480"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

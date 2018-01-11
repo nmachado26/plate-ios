@@ -61,10 +61,10 @@ class LoginPageViewController: UIViewController {
     }
 }
 
-extension UIViewController {
+extension LoginPageViewController {
     
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -98,9 +98,7 @@ extension LoginPageViewController: LoginPageProtocol {
 extension LoginPageViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        for textField in self.view.subviews where textField is UITextField {
-            textField.resignFirstResponder()
-        }
+        textField.resignFirstResponder()
         return true
     }
     

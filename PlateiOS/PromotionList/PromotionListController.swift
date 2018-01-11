@@ -53,14 +53,24 @@ extension PromotionListController {
             noFoodDialogViewController.promotionModel = promotionModel
             noFoodDialogViewController.positiveFunction = { [weak self] in
                 self?.promotionListService.createRequest(username: (self?.username)!, promotion_id: promotionModel.promotion_id, request_code: "1", completionCreateRequest: { [weak self] success in
-                    self?.handleCreateRequestToGo(success: success, promotionModel: promotionModel)
+                    self?.handleCreateRequestNoFoodLeft(success: success, promotionModel: promotionModel)
             })}
             
             promotionListProtocol.presentViewController(controller: noFoodDialogViewController)
         }
     }
     
-//    AddPromotionDialogViewController
+    func respondToPlusButtonClick() {
+        let addPromotionDialogViewController = UIStoryboard.init(name: "AddPromotionDialog", bundle: nil).instantiateViewController(withIdentifier: "AddPromotionDialog") as! AddPromotionDialogViewController
+        
+        addPromotionDialogViewController.positiveFunction = { [weak self] promotionModel in
+            //validation here
+            self?.promotionListService.createPromotion(title: promotionModel.title, start_time: promotionModel.start_time, end_time: promotionModel.end_time, location: promotionModel.location, completionCreatePromotion: { [weak self] success, promotionModel in
+                self?.handleCreatePromotion(success: success, promotionModel: promotionModel)
+            })}
+        
+        promotionListProtocol.presentViewController(controller: addPromotionDialogViewController)
+    }
 }
 
 extension PromotionListController {
@@ -103,7 +113,7 @@ extension PromotionListController {
         }
     }
     
-    func handleCreateRequestToGo(success: Bool, promotionModel: PromotionModel) {
+    func handleCreateRequestNoFoodLeft(success: Bool, promotionModel: PromotionModel) {
         if(success) {
             promotionList.removePromotion(promotionModel: promotionModel)
             promotionListProtocol.reloadTable()
@@ -112,12 +122,13 @@ extension PromotionListController {
         }
     }
     
-    func handleCreatePromotion(success: Bool, promotionModel: PromotionModel) {
-        //        if(success) {
-        //            promotionList.promotionsStatus[promotionModel] = false
-        //            promotionListProtocol.reloadTable()
-        //        }else {
-        //            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
-        //        }
+    func handleCreatePromotion(success: Bool, promotionModel: PromotionModel?) {
+        if(success && promotionModel != nil) {
+            promotionList.addPromotion(promotionModel: promotionModel!)
+            promotionListProtocol.reloadTable()
+//            promotionListProtocol.showErrorMessage(title: "success", message: "thanks for adding") //see this kind of things - equivalent to toast in android
+        }else {
+            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+        }
     }
 }

@@ -48,7 +48,6 @@
                         <outlet property="addPromotionDialog" destination="jGf-Zg-aTq" id="4rz-dD-SuF"/>
                         <outlet property="backgroundView" destination="bmg-iF-3Ge" id="fSS-JA-sig"/>
                         <outlet property="constraintOffset" destination="Dza-FN-5Va" id="aGs-rO-nFx"/>
-                        <outlet property="noFoodDialog" destination="jGf-Zg-aTq" id="16L-Pl-F1e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O57-sV-XGD" userLabel="First Responder" sceneMemberID="firstResponder"/>

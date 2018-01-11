@@ -50,6 +50,10 @@ class PromotionListViewController: UIViewController {
     // TableView outlet
     @IBOutlet fileprivate weak var promotionTable: UITableView!
     
+    @IBAction func addButtonAction(_ sender: Any) {
+        promotionListController.respondToPlusButtonClick()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
@@ -64,6 +68,7 @@ class PromotionListViewController: UIViewController {
         promotionListController.initializePromotionList(username: username)
     }
     
+// Understand if we need this or not - has to do with custom the statusBar
 //    override func viewWillDisappear(_ animated: Bool) {
 //        super.viewWillDisappear(animated)
 //        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default

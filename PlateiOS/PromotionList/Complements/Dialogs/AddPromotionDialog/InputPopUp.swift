@@ -12,16 +12,18 @@ class InputPopUp: UIView {
     
     @IBOutlet weak var title: UITextField! {
         didSet {
-            let contentView = UIView(frame: CGRect(x: 10, y: 0, width: 30, height: 20))
+            let contentView = UIView(frame: CGRect(x: 10, y: 0, width: 10, height: 20))
             
+            title.delegate = self
             title.leftViewMode = UITextFieldViewMode.always
             title.leftView = contentView
         }
     }
     @IBOutlet weak var startTime: UITextField! {
         didSet {
-            let contentView = UIView(frame: CGRect(x: 10, y: 0, width: 30, height: 20))
+            let contentView = UIView(frame: CGRect(x: 10, y: 0, width: 10, height: 20))
             
+            startTime.delegate = self
             startTime.leftViewMode = UITextFieldViewMode.always
             startTime.leftView = contentView
         }
@@ -29,8 +31,9 @@ class InputPopUp: UIView {
     
     @IBOutlet weak var endTime: UITextField! {
         didSet {
-            let contentView = UIView(frame: CGRect(x: 10, y: 0, width: 30, height: 20))
+            let contentView = UIView(frame: CGRect(x: 10, y: 0, width: 10, height: 20))
             
+            endTime.delegate = self
             endTime.leftViewMode = UITextFieldViewMode.always
             endTime.leftView = contentView
         }
@@ -38,8 +41,9 @@ class InputPopUp: UIView {
     
     @IBOutlet weak var location: UITextField! {
         didSet {
-            let contentView = UIView(frame: CGRect(x: 10, y: 0, width: 30, height: 20))
+            let contentView = UIView(frame: CGRect(x: 10, y: 0, width: 10, height: 20))
             
+            location.delegate = self
             location.leftViewMode = UITextFieldViewMode.always
             location.leftView = contentView
         }
@@ -69,9 +73,28 @@ class InputPopUp: UIView {
     var negativeFunction: (() -> Void)?
     var positiveFunction: ((PromotionModel) -> Void)?
     
+    var textFieldDidBeginEditingFunction: (() -> Void)?
+    var textFieldDidEndEditingFunction: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 4
         clipsToBounds = true
+    }
+}
+
+extension InputPopUp: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textFieldDidBeginEditingFunction?()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textFieldDidEndEditingFunction?()
     }
 }

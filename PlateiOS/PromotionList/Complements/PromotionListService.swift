@@ -23,7 +23,7 @@ final class PromotionListService {
             }catch {
                 completionReadPromotionsToGo(false, nil)
             }
-        }.resume() // why .resume()??
+            } // why .resume()??
     }
     
     func readPromotionsGoing(username: String, completionReadPromotionsGoing: @escaping (_ success: Bool, _ toGoPromotions: [PromotionModel]?) -> Void) {
@@ -36,7 +36,7 @@ final class PromotionListService {
             }catch {
                 completionReadPromotionsGoing(false, nil)
             }
-        }.resume()
+            }
     }
     
     func createRequest(username: String, promotion_id: String, request_code: String, completionCreateRequest: @escaping (_ success: Bool) -> Void) {
@@ -45,11 +45,19 @@ final class PromotionListService {
                 let success = (stringResponse == "true")
                 completionCreateRequest(success)
             }
-        }.resume()
+            }
     }
     
-    func createPromotion(title: String, start_time: String, end_time: String, location: String, completionCreatePromotion: @escaping (_ success: Bool, _ toGoPromotions: [PromotionModel]) -> Void) {
-        
+    func createPromotion(title: String, start_time: String, end_time: String, location: String, completionCreatePromotion: @escaping (_ success: Bool, _ PromotionModel: PromotionModel?) -> Void) {
+        let URL = path + "promotions/create/" + title + "/" + start_time + "/" + end_time + "/" + location
+        let safeURL = URL.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)!
+        Alamofire.request(safeURL, method: .post, parameters: nil).responseString { response in
+            if let promotion_id = response.result.value {
+                let success = (promotion_id != "")
+                let promotionModel = success ? PromotionModel(promotion_id: promotion_id, title: title, start_time: start_time, end_time: end_time, location: location) : nil
+                completionCreatePromotion(success, promotionModel)
+            }
+            }
     }
 }
 
