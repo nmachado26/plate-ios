@@ -55,6 +55,18 @@ class LoginPageViewController: UIViewController {
         return LoginPageController(loginPageProtocol: self)
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let defaults = UserDefaults.standard
+        if (defaults.bool(forKey: "isLoggedIn") == true) {
+            let username = defaults.string(forKey: "username")!
+            usernameInput.text = username
+            loginPageController.tryToLogin(username: username)
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()

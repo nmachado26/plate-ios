@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PIP-2A-RB3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="Nsd-f1-0mr">
+            <objects>
+                <viewController storyboardIdentifier="SplashScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PIP-2A-RB3" customClass="SplashScreenViewController" customModule="PlateiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="sZe-hU-QEO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmW-5T-OTb">
+                                <rect key="frame" x="133" y="421" width="109" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="48"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plateLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pe9-dx-EZw">
+                                <rect key="frame" x="67" y="173" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="8xG-GG-eP2"/>
+                                    <constraint firstAttribute="height" constant="240" id="APa-sS-YMg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7923926711" green="0.29075247050000003" blue="0.2245279849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pe9-dx-EZw" firstAttribute="top" secondItem="Rb6-iV-345" secondAttribute="top" constant="153" id="1Mw-MG-lIt"/>
+                            <constraint firstItem="RmW-5T-OTb" firstAttribute="centerX" secondItem="sZe-hU-QEO" secondAttribute="centerX" id="AcL-cI-yYO"/>
+                            <constraint firstItem="RmW-5T-OTb" firstAttribute="top" secondItem="pe9-dx-EZw" secondAttribute="bottom" constant="8" id="MiX-7E-4TI"/>
+                            <constraint firstItem="pe9-dx-EZw" firstAttribute="centerX" secondItem="sZe-hU-QEO" secondAttribute="centerX" id="ZAh-xq-2QL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Rb6-iV-345"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAH-bF-Leb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-22" y="112"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plateLogo" width="293" height="290"/>
+    </resources>
+</document>
