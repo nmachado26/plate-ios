@@ -52,10 +52,20 @@ final class PromotionListService {
         let URL = path + "promotions/create/" + title + "/" + start_time + "/" + end_time + "/" + location
         let safeURL = URL.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(safeURL, method: .post, parameters: nil).responseString { response in
-            if let promotion_id = response.result.value {
-                let success = (promotion_id != "")
-                let promotionModel = success ? PromotionModel(promotion_id: promotion_id, title: title, start_time: start_time, end_time: end_time, location: location) : nil
-                completionCreatePromotion(success, promotionModel)
+            if let result = response.result.value {
+                let success = (result != "")
+                
+                if(success) {
+                    let start = result.index(result.startIndex, offsetBy: 1)
+                    let end = result.index(result.endIndex, offsetBy: -1)
+                    let range = start..<end
+                    let promotion_id = result[range]
+                    
+                    let promotionModel = PromotionModel(promotion_id: String(promotion_id), title: title, start_time: start_time, end_time: end_time, location: location)
+                    completionCreatePromotion(success, promotionModel)
+                }else {
+                    completionCreatePromotion(false, nil)
+                }
             }
         }
     }

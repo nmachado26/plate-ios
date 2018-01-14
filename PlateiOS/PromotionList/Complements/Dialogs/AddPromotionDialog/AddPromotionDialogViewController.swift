@@ -12,6 +12,7 @@ import Foundation
 class AddPromotionDialogViewController: UIViewController {
     
     var positiveFunction: ((PromotionModel) -> Void)?
+    var errorFunction: (() -> Void)?
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var addPromotionDialog: UIView!
@@ -64,6 +65,11 @@ extension AddPromotionDialogViewController {
         
         inputPopUpView.positiveFunction = { [weak self] promotionModel in
             self?.positiveFunction?(promotionModel)
+            self?.closePopup()
+        }
+        
+        inputPopUpView.errorFunction = { [weak self] in
+            self?.errorFunction?()
             self?.closePopup()
         }
         

@@ -116,13 +116,19 @@ extension LoginPageViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if(usernameInput == textField) {
-            constraintOffset.constant = 25
+            constraintOffset.constant = -170
             self.view.layoutIfNeeded()
         }
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= 18
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        constraintOffset.constant = 150
+        constraintOffset.constant = -90
         self.view.layoutIfNeeded()
     }
 }

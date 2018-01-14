@@ -40,7 +40,7 @@ extension PromotionModel {
     
     fileprivate func formatTime(time: String) -> String {
         let dateFormatterOutput = DateFormatter()
-        dateFormatterOutput.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        dateFormatterOutput.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         let time_output: Date? = dateFormatterOutput.date(from: time)
         if time_output != nil {
@@ -77,7 +77,7 @@ extension PromotionModel {
     
     fileprivate func getTime(time: String) -> String {
         let start = time.index(time.startIndex, offsetBy: 11)
-        let end = time.index(time.endIndex, offsetBy: -8)
+        let end = (time.count != 19) ? time.index(time.endIndex, offsetBy: -8) : time.index(time.endIndex, offsetBy: -3)
         let range = start..<end
         let timeSubstring = time[range]  // play
         

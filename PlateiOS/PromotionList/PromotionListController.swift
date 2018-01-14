@@ -64,12 +64,23 @@ extension PromotionListController {
         let addPromotionDialogViewController = UIStoryboard.init(name: "AddPromotionDialog", bundle: nil).instantiateViewController(withIdentifier: "AddPromotionDialog") as! AddPromotionDialogViewController
         
         addPromotionDialogViewController.positiveFunction = { [weak self] promotionModel in
-            //validation here
             self?.promotionListService.createPromotion(title: promotionModel.title, start_time: promotionModel.start_time, end_time: promotionModel.end_time, location: promotionModel.location, completionCreatePromotion: { [weak self] success, promotionModel in
                 self?.handleCreatePromotion(success: success, promotionModel: promotionModel)
             })}
         
+        addPromotionDialogViewController.errorFunction = { [weak self] in
+            self?.delayWithSeconds(0.25) {
+                self?.promotionListProtocol.showErrorMessage(title: "Error", message: "Something went wrong. Please, check your internet connection, inputs and try again.")
+            }
+        }
+        
         promotionListProtocol.presentViewController(controller: addPromotionDialogViewController)
+    }
+    
+    fileprivate func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            completion()
+        }
     }
 }
 
@@ -86,7 +97,7 @@ extension PromotionListController {
                 self?.handleReadPromotionsGoing(success: success, goingPromotions: goingPromotions)
             })
         }else {
-            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+            promotionListProtocol.showErrorMessage(title: "Error", message: "Something went wrong. Please, try again.")
         }
     }
     
@@ -99,7 +110,7 @@ extension PromotionListController {
             // see dispatch main queue theory - command below should be in the main queue
             promotionListProtocol.loadTable()
         }else {
-            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+            promotionListProtocol.showErrorMessage(title: "Error", message: "Something went wrong. Please, try again.")
         }
     }
     
@@ -109,7 +120,7 @@ extension PromotionListController {
             promotionList.promotionsStatus[promotionModel] = false
             promotionListProtocol.reloadTable()
         }else {
-            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+              promotionListProtocol.showErrorMessage(title: "Error", message: "Sorry. This action in unavailable (event has no more food or is over).")
         }
     }
     
@@ -118,7 +129,7 @@ extension PromotionListController {
             promotionList.removePromotion(promotionModel: promotionModel)
             promotionListProtocol.reloadTable()
         }else {
-            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+            promotionListProtocol.showErrorMessage(title: "Error", message: "Sorry. This action in unavailable (event has no more food or is over).")
         }
     }
     
@@ -128,7 +139,7 @@ extension PromotionListController {
             promotionListProtocol.reloadTable()
 //            promotionListProtocol.showErrorMessage(title: "success", message: "thanks for adding") //see this kind of things - equivalent to toast in android
         }else {
-            promotionListProtocol.showErrorMessage(title: "error", message: "something went wrong")
+            promotionListProtocol.showErrorMessage(title: "Error", message: "Something went wrong. Please, check your internet connection, inputs and try again.")
         }
     }
 }

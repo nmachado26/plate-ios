@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plateLogo" translatesAutoresizingMaskIntoConstraints="NO" id="NpL-Ul-qwg">
-                                <rect key="frame" x="91" y="170" width="193" height="193"/>
+                                <rect key="frame" x="91" y="147" width="193" height="193"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="DN4-yh-h4Y"/>
                                     <constraint firstAttribute="width" constant="193" id="pMi-h8-gh2"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htu-rc-PqY" userLabel="Login Button">
-                                <rect key="frame" x="100" y="480" width="176" height="30"/>
+                                <rect key="frame" x="100" y="457" width="176" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176" id="doh-l4-pdf"/>
                                 </constraints>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNf-1W-qWX">
-                                <rect key="frame" x="63" y="394" width="250" height="30"/>
+                                <rect key="frame" x="63" y="371" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0Rq-Rh-AZq"/>
                                     <constraint firstAttribute="width" constant="250" id="XME-Qe-TST"/>
@@ -48,7 +48,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17f-u7-1EQ" userLabel="Sign Up Button">
-                                <rect key="frame" x="100" y="442" width="176" height="30"/>
+                                <rect key="frame" x="100" y="419" width="176" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176" id="whk-Aw-N3E"/>
                                 </constraints>
@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOt-b6-zp8">
-                                <rect key="frame" x="147" y="333" width="82.5" height="43"/>
+                                <rect key="frame" x="147" y="310" width="82.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="82.5" id="JbK-vg-vX1"/>
                                     <constraint firstAttribute="height" constant="43" id="fHa-8h-ktK"/>
@@ -73,21 +73,21 @@
                         </subviews>
                         <color key="backgroundColor" red="0.79239267110824585" green="0.29075247049331665" blue="0.2245279848575592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QOt-b6-zp8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="73o-JK-kpB"/>
-                            <constraint firstItem="NpL-Ul-qwg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="7K6-g5-Fiq"/>
-                            <constraint firstItem="RNf-1W-qWX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ILN-Gb-Pvx"/>
+                            <constraint firstItem="QOt-b6-zp8" firstAttribute="centerX" secondItem="7Kh-Rk-9hd" secondAttribute="centerX" id="73o-JK-kpB"/>
+                            <constraint firstItem="RNf-1W-qWX" firstAttribute="centerX" secondItem="7Kh-Rk-9hd" secondAttribute="centerX" id="ILN-Gb-Pvx"/>
                             <constraint firstItem="17f-u7-1EQ" firstAttribute="top" secondItem="RNf-1W-qWX" secondAttribute="bottom" constant="18" id="KWZ-Vy-5hf"/>
+                            <constraint firstItem="NpL-Ul-qwg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-90" id="NDX-nT-QDx"/>
                             <constraint firstItem="RNf-1W-qWX" firstAttribute="top" secondItem="QOt-b6-zp8" secondAttribute="bottom" constant="18" id="Ran-ZL-rYP"/>
-                            <constraint firstItem="17f-u7-1EQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W16-pX-ZDF"/>
-                            <constraint firstItem="NpL-Ul-qwg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wsi-oF-PEW"/>
-                            <constraint firstItem="htu-rc-PqY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cRB-Pw-WHE"/>
+                            <constraint firstItem="17f-u7-1EQ" firstAttribute="centerX" secondItem="7Kh-Rk-9hd" secondAttribute="centerX" id="W16-pX-ZDF"/>
+                            <constraint firstItem="NpL-Ul-qwg" firstAttribute="centerX" secondItem="7Kh-Rk-9hd" secondAttribute="centerX" id="Wsi-oF-PEW"/>
+                            <constraint firstItem="htu-rc-PqY" firstAttribute="centerX" secondItem="7Kh-Rk-9hd" secondAttribute="centerX" id="cRB-Pw-WHE"/>
                             <constraint firstItem="htu-rc-PqY" firstAttribute="top" secondItem="17f-u7-1EQ" secondAttribute="bottom" constant="8" id="do5-3m-Z8q"/>
                             <constraint firstItem="QOt-b6-zp8" firstAttribute="top" secondItem="NpL-Ul-qwg" secondAttribute="bottom" constant="-30" id="fw6-xF-Odm"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="7Kh-Rk-9hd"/>
                     </view>
                     <connections>
-                        <outlet property="constraintOffset" destination="7K6-g5-Fiq" id="TGT-1L-dNY"/>
+                        <outlet property="constraintOffset" destination="NDX-nT-QDx" id="3zj-E7-19k"/>
                         <outlet property="loginButton" destination="htu-rc-PqY" id="jML-pd-xTy"/>
                         <outlet property="signupButton" destination="17f-u7-1EQ" id="9BE-Fj-Xn3"/>
                         <outlet property="usernameInput" destination="RNf-1W-qWX" id="iq3-Sq-cR5"/>

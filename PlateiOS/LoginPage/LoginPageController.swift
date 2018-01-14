@@ -21,8 +21,11 @@ final class LoginPageController {
 extension LoginPageController {
     
     func tryToSignup(username: String) {
-        if(username == "") { // add validations
-            loginPageProtocol.showErrorMessage(title: "error", message: "Invalid password!")
+        let pattern = "^[-_+.a-zA-Z0-9!@#$%^*()]{1,18}$"
+        let matcher = NSPredicate(format:"SELF MATCHES[c] %@", pattern)
+        
+        if(!matcher.evaluate(with: username)) {
+            loginPageProtocol.showErrorMessage(title: "Error", message: "Invalid username entered. Please, try again.")
             return
         }
         
@@ -32,8 +35,11 @@ extension LoginPageController {
     }
     
     func tryToLogin(username: String) {
-        if(username == "") { //add validations
-            loginPageProtocol.showErrorMessage(title: "error", message: "Invalid password!")
+        let pattern = "^[-_+.a-zA-Z0-9!@#$%^*()]{1,18}$"
+        let matcher = NSPredicate(format:"SELF MATCHES[c] %@", pattern)
+        
+        if(!matcher.evaluate(with: username)) {
+            loginPageProtocol.showErrorMessage(title: "Error", message: "Invalid username entered. Please, try again.")
             return
         }
         
@@ -53,7 +59,7 @@ extension LoginPageController {
             loginPageProtocol.openViewController(controller: promotionListViewController)
         }
         else {
-            loginPageProtocol.showErrorMessage(title: "error", message: "invalid username")
+            loginPageProtocol.showErrorMessage(title: "Error", message: "Username already exists. Please, try again.")
         }
     }
     
@@ -69,7 +75,7 @@ extension LoginPageController {
             loginPageProtocol.openViewController(controller: promotionListViewController)
         }
         else {
-            loginPageProtocol.showErrorMessage(title: "error", message: "invalid username")
+            loginPageProtocol.showErrorMessage(title: "Error", message: "Username does not exist. Please, try again.")
         }
     }
 }
