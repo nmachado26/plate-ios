@@ -110,8 +110,3 @@ extension AddPromotionController {
         return
     }
 }
-
-
-
-
-
